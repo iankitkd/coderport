@@ -1,10 +1,12 @@
-import { dummyStats, dummyUserProfile } from "@/data";
 import ProfileCard from "./ProfileCard";
 import Stats from "./Stats";
 
+import { Profile, StatsInterface } from "@/types";
+import { dummyStats, dummyUserProfile } from "@/data";
+
 interface DashboardProps {
   userProfile?: Profile;
-  userStats?: Stats;
+  userStats?: StatsInterface;
 }
 
 export default function Dashboard({

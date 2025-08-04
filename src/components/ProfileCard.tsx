@@ -1,6 +1,8 @@
-import { FaUser } from "react-icons/fa";
+import Image from "next/image";
+
 import Icon from "./Icon";
 import { IconName } from "./Icon/Icons";
+import { Profile } from "@/types";
 
 export default function ProfileCard({ profile }: { profile: Profile }) {
   const { name, image, username, title, location, social, handles } = profile;
@@ -10,9 +12,11 @@ export default function ProfileCard({ profile }: { profile: Profile }) {
       <div className="flex flex-col items-center">
         <div className="bg-gray-200 rounded-full w-24 h-24 mb-2">
           {image ? (
-            <img
+            <Image
               src={image}
               alt="User image"
+              height={24}
+              width={24}
               className="h-full w-full object-cover"
             />
           ) : (

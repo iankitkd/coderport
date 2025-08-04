@@ -5,7 +5,7 @@ interface IconProps {
   className?: string;
   width?: number;
   height?: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const Icon: React.FC<IconProps> = ({ name, className = '', width = 24, height = 24, ...props }) => {

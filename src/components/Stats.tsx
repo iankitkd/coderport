@@ -1,7 +1,9 @@
 import { IconType } from "react-icons";
 import { FaCalendar, FaLaptopCode, FaTrophy } from "react-icons/fa";
 
-export default function Stats({stats}: {stats: Stats}) {
+import { StatsInterface } from "@/types";
+
+export default function Stats({stats}: {stats: StatsInterface}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6">
       <StatCard

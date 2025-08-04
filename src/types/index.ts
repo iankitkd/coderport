@@ -1,4 +1,4 @@
-interface Profile {
+export interface Profile {
   name: string;
   username: string;
   image?: string;
@@ -17,7 +17,7 @@ interface Profile {
   };
 }
 
-interface Stats {
+export interface StatsInterface {
   totalSolved: number;
   totalContests: number;
   activeDays: number;
