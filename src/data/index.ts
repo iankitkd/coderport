@@ -17,13 +17,13 @@ export const dummyUserProfile = {
   },
 };
 
+export const dummyStats = {
+  totalSolved: 1245,
+  totalContests: 87,
+  activeDays: 632,
+};
+
 export const dummyUserData = {
-  stats: {
-    totalSolved: 1245,
-    contests: 87,
-    activeDays: 632,
-    maxStreak: 120,
-  },
   ratings: {
     leetcode: 2150,
     codeforces: 1876,
@@ -38,10 +38,12 @@ export const dummyUserData = {
   // heatmapData: generateHeatmapData()
 };
 
+export const myUserName = "iankitkd";
+
 export const userProfile = {
   name: "Ankit Kumar",
   username: "iankitkd",
-  image: "/avatar.png",
+  image: "",
   title: "",
   location: "",
   social: {
@@ -50,9 +52,9 @@ export const userProfile = {
     email: "mailto:iankitkd@gmail.com",
   },
   handles: {
-    LeetCode: "iankitkd",
-    CodeForces: "iankitkd",
-    CodeChef: "iankitkd",
-    GeeksForGeeks: "iankitkd",
+    LeetCode: "https://leetcode.com/u/iankitkd",
+    CodeForces: "https://codeforces.com/profile/iankitkd",
+    CodeChef: "https://codechef.com/users/iankitkd",
+    GeeksForGeeks: "https://geeksforgeeks.org/user/iankitkd",
   },
 };

@@ -16,3 +16,9 @@ interface Profile {
     GeeksForGeeks: string;
   };
 }
+
+interface Stats {
+  totalSolved: number;
+  totalContests: number;
+  activeDays: number;
+}
