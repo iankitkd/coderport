@@ -22,3 +22,9 @@ export interface StatsInterface {
   totalContests: number;
   activeDays: number;
 }
+
+
+export type PlatformRating = {
+  name: string;
+  rating: number;
+};

@@ -7,7 +7,7 @@ export default function Stats({stats}: {stats: StatsInterface}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6">
       <StatCard
-        title="Total Solved"
+        title="Total Questions"
         value={stats.totalSolved}
         Icon={FaLaptopCode}
       />
@@ -36,7 +36,7 @@ const StatCard = ({
 }) => {
 
   return (
-    <div className="bg-white rounded-xl shadow py-8 px-4 flex items-center">
+    <div className="bg-white rounded-xl shadow py-8 px-4 flex items-center hover:scale-[1.03] transition-all duration-300">
       <div className="text-2xl mr-3"><Icon /></div>
       <div className="w-full flex items-center justify-between">
         <div className="text-xl text-gray-600 font-medium">{title}</div>

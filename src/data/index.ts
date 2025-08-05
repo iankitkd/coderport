@@ -23,19 +23,19 @@ export const dummyStats = {
   activeDays: 632,
 };
 
+export const dummyRatings = [
+  {name: "LeetCode", rating: 2150},
+  {name: "CodeForces", rating: 1876},
+  {name: "CodeChef", rating: 2011},
+  {name: "GeeksForGeeks", rating: 1966},
+];
+
 export const dummyUserData = {
-  ratings: {
-    leetcode: 2150,
-    codeforces: 1876,
-    codechef: 4.5,
-    geeksforgeeks: 84.3,
-  },
   problemsSolved: {
     easy: 645,
     medium: 452,
     hard: 148,
   },
-  // heatmapData: generateHeatmapData()
 };
 
 export const myUserName = "iankitkd";

@@ -45,7 +45,7 @@ export default function ProfileCard({ profile }: { profile: Profile }) {
         <div className="flex flex-col gap-1">
           {Object.entries(handles).map(([key, value]) => (
             <a href={value} key={key} target="_blank">
-              <div className="flex items-center justify-between px-4 py-2 rounded-2xl hover:bg-gray-100 group">
+              <div className="flex items-center justify-between px-2 py-2 rounded-2xl hover:bg-gray-100 group">
                 <div className="flex gap-2">
                   <Icon name={key as IconName} className="text-gray-800 w-8 h-8" />
                   <span className="font-medium text-gray-700">{key}</span>
