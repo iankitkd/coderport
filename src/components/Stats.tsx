@@ -13,7 +13,7 @@ export default function Stats({stats}: {stats: StatsInterface}) {
       />
       <StatCard
         title="Contests"
-        value={stats.totalContests}
+        value={stats.contests}
         Icon={FaTrophy}
       />
       <StatCard
@@ -31,7 +31,7 @@ const StatCard = ({
   Icon,
 }: {
   title: string;
-  value: number;
+  value?: number;
   Icon: IconType;
 }) => {
 
@@ -40,7 +40,7 @@ const StatCard = ({
       <div className="text-2xl mr-3"><Icon /></div>
       <div className="w-full flex items-center justify-between">
         <div className="text-xl text-gray-600 font-medium">{title}</div>
-        <div className="text-3xl font-bold text-gray-800">{value}</div>
+        <div className="text-3xl font-bold text-gray-800">{value ?? "-"}</div>
       </div>
     </div>
   );

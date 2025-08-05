@@ -10,10 +10,10 @@ export const dummyUserProfile = {
     email: "#",
   },
   handles: {
-    LeetCode: "#",
-    CodeForces: "#",
-    CodeChef: "#",
-    GeeksForGeeks: "#",
+    LeetCode: "",
+    CodeForces: "",
+    CodeChef: "",
+    GeeksForGeeks: "",
   },
 };
 
@@ -52,9 +52,34 @@ export const userProfile = {
     email: "mailto:iankitkd@gmail.com",
   },
   handles: {
-    LeetCode: "https://leetcode.com/u/iankitkd",
-    CodeForces: "https://codeforces.com/profile/iankitkd",
-    CodeChef: "https://codechef.com/users/iankitkd",
-    GeeksForGeeks: "https://geeksforgeeks.org/user/iankitkd",
+    LeetCode: "iankitkd",
+    CodeForces: "iankitkd",
+    CodeChef: "iankitkd",
+    GeeksForGeeks: "iankitkd",
   },
 };
+
+
+export const getUserUrlForPlatform = (platform: string, username:string) =>{
+  if(!username) return "#";
+  
+  let url = "";
+  switch(platform) {
+    case 'LeetCode' : 
+      url = `https://leetcode.com/u/${username}`;
+      break;
+    case 'CodeForces' : 
+      url = `https://codeforces.com/profile/${username}`;
+      break;
+    case 'CodeChef' : 
+      url = `https://codechef.com/users/${username}`;
+      break;
+    case 'GeeksForGeeks' : 
+      url = `https://geeksforgeeks.org/user/${username}`;
+      break;
+    default :
+      url = `#`;
+      break;
+  }
+  return url;
+}
