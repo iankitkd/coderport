@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { myUserName, userProfile } from "@/data";
 import Dashboard from "@/components/Dashboard";
 import { aggregateStats, getContestRatings } from "@/lib/utils";
-import { PlatformsData } from "@/types";
+import { PlatformsData, ProblemsInterface } from "@/types";
 
 import { fetchLeetCodeData } from "@/actions/leetcode";
 import { fetchCodeForcesData } from "@/actions/codeforces";
@@ -28,6 +28,7 @@ export default async function page(props: { params: Params }) {
 
   const userStats = aggregateStats(data);
   const userRatings = getContestRatings(data);
+  const problems = data.leetcode?.problems;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -36,6 +37,7 @@ export default async function page(props: { params: Params }) {
           userProfile={userProfile}
           userStats={userStats}
           userRatings={userRatings}
+          problems={problems as ProblemsInterface}
         />
       </div>
     </div>

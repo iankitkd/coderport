@@ -23,6 +23,15 @@ export interface StatsInterface {
   activeDays?: number;
 }
 
+export interface ProblemsInterface {
+  platform: string;
+  total: number;
+  all?: number;
+  easy: number;
+  medium: number;
+  hard: number;
+};
+
 export type PlatformRating = {
   name: string;
   rating: string | number;

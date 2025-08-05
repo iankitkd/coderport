@@ -50,13 +50,14 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
     const userRating = Math.round(data.userContestRanking?.rating);
     const userTitle = getLeetCodeTitleInfo(userRating);
 
-    const problems = data.matchedUser.submitStats.acSubmissionNum.reduce(
+    let problems = data.matchedUser.submitStats.acSubmissionNum.reduce(
       (acc: Record<Difficulty, number>, item: SubmissionStats) => ({
         ...acc,
         [item.difficulty.toLowerCase() as Difficulty]: item.count,
       }),
       { easy: 0, medium: 0, hard: 0, all: 0 }
     );
+    problems = {...problems, total: problems.all, platform: "LeetCode"};
 
     return {
       name: data.matchedUser.profile.realName || "",

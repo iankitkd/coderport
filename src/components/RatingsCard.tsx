@@ -4,7 +4,7 @@ import { IconName } from "./Icon/Icons";
 
 export default function RatingsCardr({ratings}: {ratings: PlatformRating[]}) {
   return (
-    <div className="bg-white rounded-xl shadow p-4 md:max-w-md">
+    <div className="bg-white rounded-xl shadow p-4 md:max-w-md lg:w-1/2">
       <h2 className="font-semibold text-xl">Contest Ratings</h2>
       <div className="">
         {ratings.map((rating) => (

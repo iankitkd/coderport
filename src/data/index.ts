@@ -30,12 +30,12 @@ export const dummyRatings = [
   {name: "GeeksForGeeks", rating: 1966},
 ];
 
-export const dummyUserData = {
-  problemsSolved: {
-    easy: 645,
-    medium: 452,
-    hard: 148,
-  },
+export const dummyProblemsCount = {
+  platform: "LeetCode",
+  total: 1245,
+  easy: 645,
+  medium: 452,
+  hard: 148,
 };
 
 export const myUserName = "iankitkd";
