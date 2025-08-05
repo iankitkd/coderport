@@ -1,4 +1,5 @@
 import apiRequest from "@/lib/apiRequest";
+import { PlatformData } from "@/types";
 
 type Difficulty = "easy" | "medium" | "hard" | "all";
 
@@ -8,7 +9,7 @@ interface SubmissionStats {
   submissions: number;
 }
 
-export const fetchLeetCodeData = async (username: string) => {
+export const fetchLeetCodeData = async (username: string): Promise<PlatformData> => {
   const query = `
     query getUserProfile($username: String!) {
       matchedUser(username: $username) {
@@ -42,7 +43,9 @@ export const fetchLeetCodeData = async (username: string) => {
     });
 
     const data = response.data;
-    if (!data.matchedUser) return null;
+    if (!data.matchedUser) {
+      throw new Error("Failed to fetch LeetCode data");
+    };
 
     const userRating = Math.round(data.userContestRanking?.rating);
     const userTitle = getLeetCodeTitleInfo(userRating);
@@ -56,7 +59,8 @@ export const fetchLeetCodeData = async (username: string) => {
     );
 
     return {
-      name: data.matchedUser.profile.realName || username,
+      name: data.matchedUser.profile.realName || "",
+      username: username,
       avatar: data.matchedUser.profile.userAvatar,
       contests: data.userContestRanking?.attendedContestsCount || 0,
       rating: userRating || 0,

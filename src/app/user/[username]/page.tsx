@@ -2,11 +2,11 @@ import { notFound } from "next/navigation";
 
 import { myUserName, userProfile } from "@/data";
 import Dashboard from "@/components/Dashboard";
-import apiRequest from "@/lib/apiRequest";
 import { aggregateStats, getContestRatings } from "@/lib/utils";
 import { PlatformsData } from "@/types";
 
-const APP_BASE_URL = process.env.APP_BASE_URL || "http://localhost:3000";
+import { fetchLeetCodeData } from "@/actions/leetcode";
+import { fetchCodeForcesData } from "@/actions/codeforces";
 
 type Params = Promise<{ username: string }>;
 
@@ -18,8 +18,8 @@ export default async function page(props: { params: Params }) {
   }
 
   const responses = await Promise.allSettled([
-    apiRequest(`${APP_BASE_URL}/api/profile/codeforces/${userProfile.handles.CodeForces}`),
-    apiRequest(`${APP_BASE_URL}/api/profile/leetcode/${userProfile.handles.LeetCode}`),
+    fetchCodeForcesData(username),
+    fetchLeetCodeData(username),
   ]);
 
   const data: PlatformsData = {};

@@ -39,12 +39,13 @@ export interface PlatformsData {
 export interface PlatformData {
   name: string;
   username: string;
-  avatar: string;
+  avatar?: string;
   title: string;
-  rating: string;
-  maxRating: string;
+  rating: number;
+  maxRating?: number;
   contests: number;
   totalSolved: number;
-  activeDays: number;
-  activeDates: Array<string>;
+  activeDays?: number;
+  activeDates?: Array<string>;
+  problems?: object;
 }
