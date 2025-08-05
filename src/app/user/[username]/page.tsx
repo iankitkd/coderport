@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import { myUserName, userProfile } from "@/data";
 import Dashboard from "@/components/Dashboard";
 import { aggregateStats, getContestRatings } from "@/lib/utils";
-import { PlatformsData, ProblemsInterface } from "@/types";
+import { PlatformData, PlatformsData, ProblemsInterface } from "@/types";
 
 import { fetchLeetCodeData } from "@/actions/leetcode";
 import { fetchCodeForcesData } from "@/actions/codeforces";
+import { fetchCodeChefData } from "@/actions/codechef";
 
 type Params = Promise<{ username: string }>;
 
@@ -20,11 +21,13 @@ export default async function page(props: { params: Params }) {
   const responses = await Promise.allSettled([
     fetchCodeForcesData(username),
     fetchLeetCodeData(username),
+    fetchCodeChefData(username),
   ]);
 
   const data: PlatformsData = {};
   if (responses[0].status === "fulfilled") data.codeforces = responses[0].value;
   if (responses[1].status === "fulfilled") data.leetcode = responses[1].value;
+  if (responses[2].status === "fulfilled") data.codechef = responses[2].value;
 
   const userStats = aggregateStats(data);
   const userRatings = getContestRatings(data);

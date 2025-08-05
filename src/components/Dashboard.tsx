@@ -27,7 +27,7 @@ export default function Dashboard({
 
       <section className="w-full md:w-2/3 lg:w-3/4">
         <Stats stats={userStats} />
-        <div className="flex flex-col lg:flex-row justify-between gap-2">
+        <div className="flex flex-col lg:flex-row justify-between gap-2 pb-2">
           <RatingsCard ratings={userRatings} />
           <ProblemsCard problems={problems} />
         </div>

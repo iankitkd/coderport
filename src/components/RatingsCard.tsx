@@ -16,7 +16,7 @@ export default function RatingsCardr({ratings}: {ratings: PlatformRating[]}) {
 
             <div className="flex items-center gap-1 col-span-2">
               <span className="font-bold text-lg">{rating.rating}</span>
-              <span className="font-extrabold px-1">-</span>
+              <span className="font-extrabold px-1">{rating.title ? "-": ""}</span>
               <span className="font-semibold capitalize">{rating.title}</span>
             </div>
           </div>
