@@ -1,3 +1,5 @@
-import apiRequest from "@/lib/apiRequest";
+// import apiRequest from "@/lib/apiRequest";
 
-export const fetchGFGData = async (username: string) => {}
+export const fetchGFGData = async (username: string) => {
+    console.log(username);
+}

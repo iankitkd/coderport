@@ -25,12 +25,26 @@ export interface StatsInterface {
 
 export type PlatformRating = {
   name: string;
-  rating: number;
+  rating: string | number;
+  title?: string;
 };
 
 export interface PlatformsData {
-  leetcode?: any;
-  codeforces?: any;
-  codechef?: any;
-  gfg?: any;
+  leetcode?: PlatformData;
+  codeforces?: PlatformData;
+  codechef?: PlatformData;
+  gfg?: PlatformData;
+}
+
+export interface PlatformData {
+  name: string;
+  username: string;
+  avatar: string;
+  title: string;
+  rating: string;
+  maxRating: string;
+  contests: number;
+  totalSolved: number;
+  activeDays: number;
+  activeDates: Array<string>;
 }

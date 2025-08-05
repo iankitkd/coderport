@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import { FaCalendar, FaLaptopCode, FaTrophy } from "react-icons/fa";
+import { FaLaptopCode, FaTrophy } from "react-icons/fa";
 
 import { StatsInterface } from "@/types";
 
@@ -16,11 +16,11 @@ export default function Stats({stats}: {stats: StatsInterface}) {
         value={stats.contests}
         Icon={FaTrophy}
       />
-      <StatCard
+      {/* <StatCard
         title="Active Days"
         value={stats.activeDays}
         Icon={FaCalendar}
-      />
+      /> */}
     </div>
   );
 }
