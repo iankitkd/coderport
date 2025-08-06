@@ -22,6 +22,7 @@ export const fetchGFGData = async (username: string): Promise<PlatformData> => {
     const hardProblems = $('[class^="problemNavbar_head_nav--text__UaGCx"]').eq(4).text().trim().match(/\d+/);
 
     const problems = {
+      total: parseInt(totalSolved || "0"),
       school: (schoolProblems ? parseInt(schoolProblems[0]) : 0),
       basic: (basicProblems ? parseInt(basicProblems[0]) : 0),
       easy: (easyProblems ? parseInt(easyProblems[0]) : 0),

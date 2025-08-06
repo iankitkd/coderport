@@ -21,7 +21,7 @@ export const dummyUserProfile = {
 
 export const dummyStats = {
   totalSolved: 1245,
-  totalContests: 87,
+  contests: 87,
   activeDays: 632,
 };
 
@@ -41,7 +41,6 @@ export const dummyData: PlatformsData = {
     title: "",
     rating: 2150,
     problems: {
-      platform: "LeetCode",
       total: 1245,
       easy: 645,
       medium: 452,

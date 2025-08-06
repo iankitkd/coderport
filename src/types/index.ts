@@ -26,9 +26,7 @@ export interface StatsInterface {
 }
 
 export interface ProblemsInterface {
-  platform: string;
   total: number;
-  all?: number;
   school?: number;
   basic?: number;
   easy: number;

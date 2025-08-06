@@ -1,13 +1,24 @@
-import React from "react";
 
 export default function Loader() {
-  return (
-    <div className="flex flex-col lg:flex-row gap-6 p-1 animate-pulse">
-      <div className="w-full md:w-1/3 lg:w-1/4">
-        <div className="bg-gray-200"></div>
-      </div>
+  const loaderCss = "bg-gray-200 rounded-xl animate-pulse";
 
-      <div className="w-full md:w-1/3 lg:w-3/4"></div>
+  return (
+    <div className="flex flex-col md:flex-row gap-6 p-3">
+      <section className="w-full md:w-1/3 lg:w-1/4">
+        <div className={`${loaderCss} min-h-[500px]`} />
+      </section>
+
+      <section className="w-full md:w-2/3 lg:w-3/4 space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className={`${loaderCss} w-full min-h-[120px]`} />
+          <div className={`${loaderCss} w-full min-h-[120px]`} />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className={`${loaderCss} w-full min-h-[240px]`} />
+          <div className={`${loaderCss} w-full min-h-[240px]`} />
+        </div>
+      </section>
     </div>
   );
 }
