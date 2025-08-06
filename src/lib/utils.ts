@@ -31,16 +31,16 @@ export const aggregateStats = (data: PlatformsData) => {
 export const getContestRatings = (data: PlatformsData) => {
   const contestRating: PlatformRating[] = [];
 
-  if (data.leetcode?.rating) {
+  if (data.leetcode) {
     contestRating.push({ name: "LeetCode", rating: data.leetcode.rating, title: data.leetcode.title });
   }
-  if (data.codeforces?.rating) {
+  if (data.codeforces) {
     contestRating.push({ name: "CodeForces", rating: data.codeforces.rating, title: data.codeforces.title });
   }
-  if (data.codechef?.rating) {
+  if (data.codechef) {
     contestRating.push({ name: "CodeChef", rating: data.codechef.rating, title: data.codechef.title });
   }
-  if (data.gfg?.rating) {
+  if (data.gfg) {
     contestRating.push({ name: "GeeksForGeeks", rating: data.gfg.rating, title: data.gfg.title });
   }
 

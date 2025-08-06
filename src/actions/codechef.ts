@@ -8,8 +8,6 @@ export const fetchCodeChefData = async (username: string): Promise<PlatformData>
     const html = await response.text();
     
     const $ = cheerio.load(html);
-    // console.log(html)
-    // console.log($)
     
     // Extract rating
     const ratingText = $('.rating-number').text();
@@ -36,6 +34,7 @@ export const fetchCodeChefData = async (username: string): Promise<PlatformData>
       totalSolved,
     };
   } catch (error) {
+    console.log(error);
     throw new Error('Failed to fetch CodeChef data');
   }
 };

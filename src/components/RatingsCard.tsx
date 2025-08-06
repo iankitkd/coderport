@@ -2,7 +2,7 @@ import { PlatformRating } from "@/types";
 import Icon from "./Icon";
 import { IconName } from "./Icon/Icons";
 
-export default function RatingsCardr({ratings}: {ratings: PlatformRating[]}) {
+export default function RatingsCard({ratings}: {ratings: PlatformRating[]}) {
   return (
     <div className="bg-white rounded-xl shadow p-4 md:max-w-md lg:w-1/2">
       <h2 className="font-semibold text-xl">Contest Ratings</h2>
@@ -15,7 +15,7 @@ export default function RatingsCardr({ratings}: {ratings: PlatformRating[]}) {
             </div>
 
             <div className="flex items-center gap-1 col-span-2">
-              <span className="font-bold text-lg">{rating.rating}</span>
+              <span className="font-bold text-lg">{(rating.rating > 0) ? rating.rating : ""}</span>
               <span className="font-extrabold px-1">{rating.title ? "-": ""}</span>
               <span className="font-semibold capitalize">{rating.title}</span>
             </div>

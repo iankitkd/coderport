@@ -34,7 +34,7 @@ export interface ProblemsInterface {
 
 export type PlatformRating = {
   name: string;
-  rating: string | number;
+  rating: number;
   title?: string;
 };
 
