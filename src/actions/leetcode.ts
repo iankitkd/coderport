@@ -48,7 +48,7 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
     };
 
     const userRating = Math.round(data.userContestRanking?.rating);
-    const userTitle = getLeetCodeTitleInfo(userRating);
+    // const userTitle = getLeetCodeTitleInfo(userRating);
 
     let problems = data.matchedUser.submitStats.acSubmissionNum.reduce(
       (acc: Record<Difficulty, number>, item: SubmissionStats) => ({
@@ -65,7 +65,7 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
       avatar: data.matchedUser.profile.userAvatar,
       contests: data.userContestRanking?.attendedContestsCount || 0,
       rating: userRating || 0,
-      title: userTitle.title || "Unrated",
+      title: "",
       totalSolved: problems.all || 0,
       problems: problems,
     };
@@ -75,15 +75,15 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
   }
 };
 
-function getLeetCodeTitleInfo(rating: number) {
-  if (rating === null || rating === undefined)
-    return { title: "Unrated", color: "gray" };
+// function getLeetCodeTitleInfo(rating: number) {
+//   if (rating === null || rating === undefined)
+//     return { title: "Unrated", color: "gray" };
 
-  if (rating < 1400) return { title: "Newbie", color: "gray" };
-  if (rating < 1600) return { title: "Knight", color: "green" };
-  if (rating < 1800) return { title: "Guardian", color: "blue" };
-  if (rating < 2000) return { title: "Crusader", color: "purple" };
-  if (rating < 2200) return { title: "Paladin", color: "yellow" };
-  if (rating < 2400) return { title: "Challenger", color: "orange" };
-  return { title: "Legendary", color: "red" };
-}
+//   if (rating < 1400) return { title: "Newbie", color: "text-gray-600" };
+//   if (rating < 1600) return { title: "Knight", color: "text-green-700" };
+//   if (rating < 1800) return { title: "Guardian", color: "text-blue-700" };
+//   if (rating < 2000) return { title: "Crusader", color: "text-purple-800" };
+//   if (rating < 2200) return { title: "Paladin", color: "text-yellow-500" };
+//   if (rating < 2400) return { title: "Challenger", color: "text-orange-500" };
+//   return { title: "Legendary", color: "text-red-600" };
+// }

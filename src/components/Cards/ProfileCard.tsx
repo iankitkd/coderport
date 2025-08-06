@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import Icon from "./Icon";
-import { IconName } from "./Icon/Icons";
+import Icon from "../Icon";
+import { IconName } from "../Icon/Icons";
 import { Profile } from "@/types";
 import { getUserUrlForPlatform } from "@/data";
 

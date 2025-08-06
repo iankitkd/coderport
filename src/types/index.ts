@@ -36,6 +36,7 @@ export type PlatformRating = {
   name: string;
   rating: number;
   title?: string;
+  color?: string;
 };
 
 export interface PlatformsData {
@@ -51,6 +52,7 @@ export interface PlatformData {
   avatar?: string;
   title: string;
   rating: number;
+  ratingColor?: string;
   maxRating?: number;
   contests: number;
   totalSolved: number;

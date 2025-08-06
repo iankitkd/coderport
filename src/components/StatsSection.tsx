@@ -1,12 +1,12 @@
 import { IconType } from "react-icons";
-import { FaCalendar, FaLaptopCode, FaTrophy } from "react-icons/fa";
+import { FaLaptopCode, FaTrophy } from "react-icons/fa";
 import { MdInfoOutline } from "react-icons/md";
 
 import { StatsInterface } from "@/types";
 
-export default function Stats({stats}: {stats: StatsInterface}) {
+export default function StatsSection({stats}: {stats: StatsInterface}) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mb-6 md:max-w-md lg:max-w-full">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-4 mb-6 md:max-w-md lg:max-w-full">
       <StatCard
         title="Total Questions"
         value={stats.totalSolved}
@@ -17,12 +17,12 @@ export default function Stats({stats}: {stats: StatsInterface}) {
         value={stats.contests}
         Icon={FaTrophy}
       />
-      <StatCard
+      {/* <StatCard
         title="Active Days"
         value={stats.activeDays}
         Icon={FaCalendar}
         label="Total active days on codeforces"
-      />
+      /> */}
     </div>
   );
 }

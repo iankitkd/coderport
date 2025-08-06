@@ -1,6 +1,6 @@
+import Icon from "../Icon";
+import { IconName } from "../Icon/Icons";
 import { PlatformRating } from "@/types";
-import Icon from "./Icon";
-import { IconName } from "./Icon/Icons";
 
 export default function RatingsCard({ratings}: {ratings: PlatformRating[]}) {
   return (
@@ -17,7 +17,7 @@ export default function RatingsCard({ratings}: {ratings: PlatformRating[]}) {
             <div className="flex items-center gap-1 col-span-2">
               <span className="font-bold text-lg">{(rating.rating > 0) ? rating.rating : ""}</span>
               <span className="font-extrabold px-1">{rating.title ? "-": ""}</span>
-              <span className="font-semibold capitalize">{rating.title}</span>
+              <span className={`font-semibold capitalize ${rating.color}`}>{rating.title}</span>
             </div>
           </div>
         ))}

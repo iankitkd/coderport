@@ -1,10 +1,11 @@
-import ProfileCard from "./ProfileCard";
-import Stats from "./Stats";
+
 
 import { PlatformRating, ProblemsInterface, Profile, StatsInterface } from "@/types";
 import { dummyProblemsCount, dummyRatings, dummyStats, dummyUserProfile } from "@/data";
-import RatingsCard from "./RatingsCard";
-import ProblemsCard from "./ProblemsCard";
+import ProfileCard from "./Cards/ProfileCard";
+import RatingsCard from "./Cards/RatingsCard";
+import ProblemsCard from "./Cards/ProblemsCard";
+import StatsSection from "./StatsSection";
 
 interface DashboardProps {
   userProfile?: Profile;
@@ -26,7 +27,7 @@ export default function Dashboard({
       </section>
 
       <section className="w-full md:w-2/3 lg:w-3/4">
-        <Stats stats={userStats} />
+        <StatsSection stats={userStats} />
         <div className="flex flex-col lg:flex-row justify-between gap-2 pb-2">
           <RatingsCard ratings={userRatings} />
           <ProblemsCard problems={problems} />

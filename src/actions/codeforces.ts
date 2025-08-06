@@ -27,8 +27,9 @@ export const fetchCodeForcesData = async (username: string) => {
       name: userData.firstName? (userData.firstName + ' ' + userData.lastName) : "",
       username: userData.handle,
       avatar: userData.avatar || '',
-      title: userData.rank || 'Unrated',
+      title: userData.rank || '',
       rating: userData.rating || 0,
+      ratingColor: getRatingColor(userData.rank),
       maxRating: userData.maxRating || 0,
       contests: ratingResponse.result.length || 0,
       totalSolved: solvedProblems.size || 0,
@@ -39,3 +40,17 @@ export const fetchCodeForcesData = async (username: string) => {
     throw new Error(`Failed to fetch CodeForces data ${error}`);
   }
 };
+
+const getRatingColor = (title: string) => {
+  if(!title) return "";
+  switch(title.toLowerCase()) {
+    case "newbie": return "text-gray-600";
+    case "pupil": return "text-green-600";
+    case "specialist": return "text-cyan-600";
+    case "expert": return "text-blue-700";
+    case "candidate master": return "text-violet-700";
+    case "master": return "text-orange-500";
+    case "international master": return "text-orange-500";
+  }
+  return "text-red-600";
+}

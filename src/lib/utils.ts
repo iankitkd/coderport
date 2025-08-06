@@ -32,16 +32,16 @@ export const getContestRatings = (data: PlatformsData) => {
   const contestRating: PlatformRating[] = [];
 
   if (data.leetcode) {
-    contestRating.push({ name: "LeetCode", rating: data.leetcode.rating, title: data.leetcode.title });
+    contestRating.push({ name: "LeetCode", rating: data.leetcode.rating, title: data.leetcode.title, color: data.leetcode.ratingColor });
   }
   if (data.codeforces) {
-    contestRating.push({ name: "CodeForces", rating: data.codeforces.rating, title: data.codeforces.title });
+    contestRating.push({ name: "CodeForces", rating: data.codeforces.rating, title: data.codeforces.title, color: data.codeforces.ratingColor});
   }
   if (data.codechef) {
-    contestRating.push({ name: "CodeChef", rating: data.codechef.rating, title: data.codechef.title });
+    contestRating.push({ name: "CodeChef", rating: data.codechef.rating, title: data.codechef.title, color: data.codechef.ratingColor});
   }
   if (data.gfg) {
-    contestRating.push({ name: "GeeksForGeeks", rating: data.gfg.rating, title: data.gfg.title });
+    contestRating.push({ name: "GeeksForGeeks", rating: data.gfg.rating, title: data.gfg.title, color: data.gfg.ratingColor});
   }
 
   return contestRating;
