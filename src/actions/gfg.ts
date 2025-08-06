@@ -1,11 +1,11 @@
 import * as cheerio from "cheerio";
 
 import { PlatformData } from "@/types";
+import apiRequest from "@/lib/apiRequest";
 
 export const fetchGFGData = async (username: string): Promise<PlatformData> => {
   try {
-    const response = await fetch(`https://www.geeksforgeeks.org/user/${username}`);
-    const html = await response.text();
+    const html = await apiRequest(`https://www.geeksforgeeks.org/user/${username}`, "GET", {}, "text");
 
     const $ = cheerio.load(html);
 

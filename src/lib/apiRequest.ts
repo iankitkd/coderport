@@ -1,7 +1,8 @@
 export default async function apiRequest(
   url: string,
   method: "GET" | "POST" | "PUT" | "DELETE" = "GET",
-  options?: RequestInit & { data?: object }
+  options?: RequestInit & { data?: object },
+  returnType: "json" | "text" = "json",
 ) {
   try {
     const response = await fetch(url, {
@@ -19,6 +20,11 @@ export default async function apiRequest(
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(errorData.message || "Request failed");
+    }
+
+    if(returnType === "text") {
+      const text = await response.text();
+      return text;
     }
 
     const data = await response.json();

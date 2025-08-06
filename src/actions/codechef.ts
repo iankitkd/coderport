@@ -1,11 +1,11 @@
 import * as cheerio from 'cheerio';
 
 import { PlatformData } from '@/types';
+import apiRequest from '@/lib/apiRequest';
 
 export const fetchCodeChefData = async (username: string): Promise<PlatformData> => {
   try {
-    const response = await fetch(`https://www.codechef.com/users/${username}`);
-    const html = await response.text();
+    const html = await apiRequest(`https://www.codechef.com/users/${username}`, "GET", {}, "text");
     
     const $ = cheerio.load(html);
     
