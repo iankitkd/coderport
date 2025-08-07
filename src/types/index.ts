@@ -61,4 +61,12 @@ export interface PlatformData {
   activeDays?: number;
   activeDates?: Array<string>;
   problems?: ProblemsInterface;
+  contestsHistory?: RatingHistoryEntry[];
+}
+
+export interface RatingHistoryEntry {
+  date: string;
+  rating: number;
+  contestName?: string;
+  rank?: number;
 }

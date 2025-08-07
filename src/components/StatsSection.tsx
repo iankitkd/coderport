@@ -6,14 +6,14 @@ import { StatsInterface } from "@/types";
 
 export default function StatsSection({stats}: {stats: StatsInterface}) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 place-content-between gap-2 mb-6 md:max-w-md lg:max-w-full">
+    <div className="grid grid-cols-1 md:grid-cols-2 place-content-between gap-2">
       <StatCard
         title="Total Questions"
         value={stats.totalSolved}
         Icon={FaLaptopCode}
       />
       <StatCard
-        title="Contests"
+        title="Total Contests"
         value={stats.contests}
         Icon={FaTrophy}
       />

@@ -10,7 +10,7 @@ interface RatingsCardProps {
 
 export default function RatingsCard({selectedPlatform, setSelectedPlatform, ratings}: RatingsCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow p-4 md:max-w-md lg:w-1/2">
+    <div className="bg-white rounded-xl shadow p-4 w-full">
       <h2 className="font-semibold text-xl">Contest Ratings</h2>
       <div className="">
         {ratings.map((rating) => (

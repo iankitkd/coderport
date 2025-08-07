@@ -1,5 +1,12 @@
 import apiRequest from "@/lib/apiRequest";
 
+type ContestType = {
+  contestName: string;
+  rank: number;
+  newRating: number;
+  ratingUpdateTimeSeconds: number;
+}
+
 export const fetchCodeForcesData = async (username: string) => {
   try {
     const [response, ratingResponse, statusResponse] = await 
@@ -23,6 +30,13 @@ export const fetchCodeForcesData = async (username: string) => {
       activeDates.add(date);
     }
 
+    const contestsHistory =  ratingResponse.result.map((contest: ContestType) => ({
+      date: new Date(contest.ratingUpdateTimeSeconds * 1000).toISOString().split('T')[0],
+      rating: contest.newRating,
+      contestName: contest.contestName,
+      rank: contest.rank,
+    }));
+
     return {
       name: userData.firstName? (userData.firstName + ' ' + userData.lastName) : "",
       username: userData.handle,
@@ -35,6 +49,7 @@ export const fetchCodeForcesData = async (username: string) => {
       totalSolved: solvedProblems.size || 0,
       activeDays: activeDates.size|| 0,
       activeDates: Array.from(activeDates || []),
+      contestsHistory,
     };
   } catch (error) {
     throw new Error(`Failed to fetch CodeForces data ${error}`);

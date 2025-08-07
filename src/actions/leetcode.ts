@@ -31,6 +31,19 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
         rating
         attendedContestsCount
       }
+      userContestRankingHistory(username: $username) {
+        attended
+        trendDirection
+        problemsSolved
+        totalProblems
+        finishTimeInSeconds
+        rating
+        ranking
+        contest {
+          title
+          startTime
+        }
+      }
     }
   `;
 
@@ -59,6 +72,15 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
     );
     problems = {...problems, total: problems.all, platform: "LeetCode"};
 
+    const contestsHistory =  data.userContestRankingHistory
+      .filter((entry: {attended: string}) => entry.attended)
+      .map((entry: {rating: number, ranking: number, contest: {title: string, startTime: number}}) => ({
+        date: new Date(entry.contest.startTime * 1000).toISOString().split('T')[0],
+        rating: entry.rating,
+        contestName: entry.contest.title,
+        rank: entry.ranking,
+    }));
+
     return {
       name: data.matchedUser.profile.realName || "",
       username: username,
@@ -68,6 +90,7 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
       title: "",
       totalSolved: problems.all || 0,
       problems: problems,
+      contestsHistory,
     };
   } catch (error) {
     console.log(error);

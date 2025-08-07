@@ -8,13 +8,13 @@ export default function ProblemsCard({
   problems?: ProblemsInterface,
 }) {
   return (
-    <div className="bg-white rounded-xl shadow p-4 md:max-w-md lg:w-1/2">
+    <div className="bg-white rounded-xl shadow p-4 w-full">
       <div className="flex justify-between items-center gap-2 pb-4">
-        <h2 className="text-xl font-semibold">Total Problems Solved</h2>
+        <h2 className="text-xl font-semibold">Problems Solved</h2>
         <div className="text-2xl font-bold">{totalSolved}</div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 pb-6">
         {problems && (
           <>
             {problems.school ? (
