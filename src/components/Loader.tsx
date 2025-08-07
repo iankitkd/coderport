@@ -8,15 +8,14 @@ export default function Loader() {
         <div className={`${loaderCss} min-h-[500px]`} />
       </section>
 
-      <section className="w-full md:w-2/3 lg:w-3/4 space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <section className="w-full md:w-2/3 lg:w-3/4 space-y-8 flex gap-2">
+        <div className="w-full md:w-3/5 space-y-2">
           <div className={`${loaderCss} w-full min-h-[120px]`} />
-          <div className={`${loaderCss} w-full min-h-[120px]`} />
+          <div className={`${loaderCss} w-full min-h-[370px]`} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <div className={`${loaderCss} w-full min-h-[240px]`} />
-          <div className={`${loaderCss} w-full min-h-[240px]`} />
+        <div className="flex-1">
+          <div className={`${loaderCss} w-full min-h-[500px]`} />
         </div>
       </section>
     </div>

@@ -70,3 +70,9 @@ export interface RatingHistoryEntry {
   contestName?: string;
   rank?: number;
 }
+
+export interface PieChartDataEntry {
+  name: string;
+  value: number;
+  color?: string;
+}

@@ -1,20 +1,22 @@
-import { ProblemsInterface } from "@/types";
+import { PlatformsType, ProblemsInterface } from "@/types";
 
 export default function ProblemsCard({
+  platform,
   totalSolved,
   problems,
 }: {
+  platform: PlatformsType,
   totalSolved: number,
   problems?: ProblemsInterface,
 }) {
   return (
-    <div className="bg-white rounded-xl shadow p-4 w-full">
-      <div className="flex justify-between items-center gap-2 pb-4">
-        <h2 className="text-xl font-semibold">Problems Solved</h2>
-        <div className="text-2xl font-bold">{totalSolved}</div>
+    <div className="">
+      <div className="flex justify-between items-center gap-2 pb-2">
+        <h3 className="text-lg font-semibold">Solved on {platform}</h3>
+        <div className="text-xl font-bold">{totalSolved}</div>
       </div>
 
-      <div className="space-y-4 pb-6">
+      <div className="space-y-4 pb-3">
         {problems && (
           <>
             {problems.school ? (

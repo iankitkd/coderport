@@ -9,6 +9,7 @@ import { fetchLeetCodeData } from "@/actions/leetcode";
 import { fetchCodeForcesData } from "@/actions/codeforces";
 import { fetchCodeChefData } from "@/actions/codechef";
 import { fetchGFGData } from "@/actions/gfg";
+import loading from "./loading";
 
 type Params = Promise<{ username: string }>;
 

@@ -6,7 +6,7 @@ import { StatsInterface } from "@/types";
 
 export default function StatsSection({stats}: {stats: StatsInterface}) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 place-content-between gap-2">
+    <div className="grid grid-cols-2 place-content-between gap-2">
       <StatCard
         title="Total Questions"
         value={stats.totalSolved}
@@ -40,11 +40,13 @@ const StatCard = ({
 }) => {
 
   return (
-    <div className={`bg-white rounded-xl shadow py-8 px-4 md:max-w-md w-full flex items-center hover:scale-[1.03] transition-all duration-300 relative ${title === "Contests" && "md:justify-self-end"}`}>
-      <div className="text-2xl mr-3"><Icon /></div>
-      <div className="w-full flex items-center justify-between">
-        <div className="text-xl text-gray-600 font-medium">{title}</div>
-        <div className="text-3xl font-bold text-gray-800">{value ?? "-"}</div>
+    <div className={`bg-white rounded-xl shadow py-4 px-4 w-full flex items-center hover:scale-[1.03] transition-all duration-300 relative ${title === "Contests" && "md:justify-self-end"}`}>
+      <div className="w-full flex flex-col items-center justify-between">
+        <div className="flex items-center">
+          <div className="mr-3"><Icon size={20} /></div>
+          <div className="text-lg text-gray-600 font-medium">{title}</div>
+        </div>
+        <div className="text-4xl font-bold text-gray-800">{value ?? "-"}</div>
       </div>
 
       {label && (
