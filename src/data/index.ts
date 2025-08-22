@@ -20,7 +20,7 @@ export const dummyUserProfile = {
 };
 
 export const dummyStats = {
-  totalSolved: 1245,
+  totalSolved: 1641,
   contests: 87,
   activeDays: 632,
 };

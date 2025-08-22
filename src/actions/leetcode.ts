@@ -76,7 +76,7 @@ export const fetchLeetCodeData = async (username: string): Promise<PlatformData>
       .filter((entry: {attended: string}) => entry.attended)
       .map((entry: {rating: number, ranking: number, contest: {title: string, startTime: number}}) => ({
         date: new Date(entry.contest.startTime * 1000).toISOString().split('T')[0],
-        rating: entry.rating,
+        rating: Math.round(entry.rating),
         contestName: entry.contest.title,
         rank: entry.ranking,
     }));

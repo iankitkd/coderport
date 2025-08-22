@@ -1,7 +1,17 @@
 import * as cheerio from 'cheerio';
 
-import { PlatformData } from '@/types';
+import { PlatformData, RatingHistoryEntry } from '@/types';
 import apiRequest from '@/lib/apiRequest';
+
+interface CodeChefHistoryEntry {
+  code: string; 
+  name: string; 
+  rating: string; 
+  rank: string; 
+  end_date: string; 
+  penalised_in: string[] | null; 
+  reason: string | null;
+}
 
 export const fetchCodeChefData = async (username: string): Promise<PlatformData> => {
   try {
@@ -25,6 +35,26 @@ export const fetchCodeChefData = async (username: string): Promise<PlatformData>
     const totalSolvedText = $('h3:contains("Total Problems Solved")').text();
     const totalSolved = parseInt(totalSolvedText.split(':')[1].trim() || '0'); 
     
+    // Extract contests history
+    const scriptContent = $('script:contains(Drupal.settings)').html();
+    const match = scriptContent?.match(/jQuery\.extend\(Drupal\.settings,\s*(\{[\s\S]*?\})\s*\);/);
+    let contestsHistory: RatingHistoryEntry[] = [];
+
+    if (match) {
+      const jsonString = match[1];
+      try {
+        const drupalSettings = JSON.parse(jsonString);
+        contestsHistory = drupalSettings.date_versus_rating.all.map((item: CodeChefHistoryEntry) => ({ 
+          date: item.end_date.split(" ")[0], 
+          rating: parseInt(item.rating), 
+          rank: parseInt(item.rank), 
+          contestName: item.name, 
+        }));
+      } catch (err) {
+        console.log('Failed to parse JSON:', err);
+      }
+    }
+    
     return {
       name: $('h1.h2-style').text().trim() || "",
       username: username,
@@ -34,6 +64,7 @@ export const fetchCodeChefData = async (username: string): Promise<PlatformData>
       ratingColor,
       contests,
       totalSolved,
+      contestsHistory
     };
   } catch (error) {
     console.log(error);
