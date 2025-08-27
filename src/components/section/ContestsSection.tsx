@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-import RatingsCard from "./Cards/RatingsCard";
+import RatingsCard from "./cards/RatingsCard";
 import { PlatformRating, PlatformsData, PlatformsType } from "@/types";
-import MyLineChart from "./Charts/MyLineChart";
+import MyLineChart from "./charts/MyLineChart";
 
 export default function ContestsSection({
   userRatings,

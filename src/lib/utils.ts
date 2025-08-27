@@ -1,4 +1,10 @@
 import { PlatformRating, PlatformsData } from "@/types";
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 export const aggregateStats = (data: PlatformsData) => {
   const totalSolved =
@@ -45,4 +51,28 @@ export const getContestRatings = (data: PlatformsData) => {
   }
 
   return contestRating;
+};
+
+export const getUserUrlForPlatform = (platform: string, username: string) => {
+  if (!username) return "#";
+
+  let url = "";
+  switch (platform) {
+    case "LeetCode":
+      url = `https://leetcode.com/u/${username}`;
+      break;
+    case "CodeForces":
+      url = `https://codeforces.com/profile/${username}`;
+      break;
+    case "CodeChef":
+      url = `https://codechef.com/users/${username}`;
+      break;
+    case "GeeksForGeeks":
+      url = `https://geeksforgeeks.org/user/${username}`;
+      break;
+    default:
+      url = `#`;
+      break;
+  }
+  return url;
 };

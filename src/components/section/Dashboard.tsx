@@ -1,6 +1,6 @@
 import { PlatformRating, PlatformsData, Profile, StatsInterface } from "@/types";
-import { dummyData, dummyRatings, dummyStats, dummyUserProfile } from "@/data";
-import ProfileCard from "./Cards/ProfileCard";
+import { dummyData, dummyRatings, dummyStats, dummyUserProfile } from "@/data/dummyStats";
+import ProfileCard from "../cards/ProfileCard";
 import ProblemsSection from "./ProblemsSection";
 import ContestsSection from "./ContestsSection";
 import StatsSection from "./StatsSection";

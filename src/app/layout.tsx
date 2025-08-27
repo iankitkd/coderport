@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Coding Profile",
+  title: "CoderPort",
   description: "Track your coding progress across multiple platforms",
 };
 

@@ -1,6 +1,7 @@
 import { ComponentType } from 'react';
-import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser, FaLock, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import { MdMail } from "react-icons/md";
+import { FcGoogle } from 'react-icons/fc';
 
 import { ImageIcon } from './ImageIcon';
 import { IconType } from 'react-icons';
@@ -10,7 +11,9 @@ type ReactIconComponent = IconType;
 type PNGIconComponent = ComponentType<Omit<ImageProps, 'src' | 'alt'>>;
 export type IconComponent = ReactIconComponent | PNGIconComponent;
 
-export type IconName = 'github' | 'linkedin' | 'email' | 'user' | 'CodeForces' | 'CodeChef' | 'LeetCode' | 'LeetCodeDark' | 'GeeksForGeeks' | 'externalLink';
+export type IconName = 'github' | 'linkedin' | 'email' | 'user' 
+  | 'CodeForces' | 'CodeChef' | 'LeetCode' | 'LeetCodeDark' | 'GeeksForGeeks' | 'google'
+  | 'externalLink' | 'lock' | 'checkCircle' | 'exclamationTriangle';
 
 export const Icons: Record<IconName, IconComponent> = {
   user: FaUser,
@@ -23,4 +26,8 @@ export const Icons: Record<IconName, IconComponent> = {
   LeetCode: () => <ImageIcon src="/logos/leetcode-light.png" alt="Leetcode" />,
   LeetCodeDark: () => <ImageIcon src="/logos/leetcode-dark.png" alt="Leetcode Dark" />,
   GeeksForGeeks: () => <ImageIcon src="/logos/gfg.png" alt="GFG" />,
+  google: FcGoogle,
+  lock: FaLock,
+  checkCircle: FaCheckCircle,
+  exclamationTriangle: FaExclamationTriangle,
 };

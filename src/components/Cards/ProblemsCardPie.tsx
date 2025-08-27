@@ -1,4 +1,4 @@
-import MyPieChart from "../Charts/MyPieChart";
+import MyPieChart from "../charts/MyPieChart";
 
 import { PieChartDataEntry } from "@/types";
 

@@ -1,5 +1,5 @@
-import ProblemsCard from "./Cards/ProblemsCard";
-import ProblemsCardPie from "./Cards/ProblemsCardPie";
+import ProblemsCard from "./cards/ProblemsCard";
+import ProblemsCardPie from "./cards/ProblemsCardPie";
 
 import { PieChartDataEntry, ProblemsInterface } from "@/types";
 
