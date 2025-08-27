@@ -3,11 +3,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: oklch(70.5% 0.213 47.604);
+  --primary-hover: oklch(95.4% 0.038 75.164);
+  --gradient-start: oklch(75% 0.183 55.934);
+  --gradient-mid: oklch(70.5% 0.213 47.604);
+  --gradient-end: oklch(64.6% 0.222 41.116);
+  --gradient-start-hover: oklch(64.6% 0.222 41.116);
+  --gradient-end-hover: oklch(55.3% 0.195 38.402);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-gradient-start: var(--gradient-start);
+  --color-gradient-mid: var(--gradient-mid);
+  --color-gradient-end: var(--gradient-end);
+  --color-gradient-start-hover: var(--gradient-start-hover);
+  --color-gradient-end-hover: var(--gradient-end-hover);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

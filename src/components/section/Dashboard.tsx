@@ -1,9 +1,9 @@
 import { PlatformRating, PlatformsData, Profile, StatsInterface } from "@/types";
 import { dummyData, dummyRatings, dummyStats, dummyUserProfile } from "@/data/dummyStats";
 import ProfileCard from "../cards/ProfileCard";
-import ProblemsSection from "./ProblemsSection";
-import ContestsSection from "./ContestsSection";
 import StatsSection from "./StatsSection";
+import ContestsSection from "./ContestsSection";
+import ProblemsSection from "./ProblemsSection";
 
 interface DashboardProps {
   userProfile?: Profile;

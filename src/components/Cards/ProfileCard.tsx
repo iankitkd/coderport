@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 import Icon from "../Icon";
-import { IconName } from "../Icon/Icons";
+import { IconName } from "../Icon/icons";
 import { Profile } from "@/types";
-import { getUserUrlForPlatform } from "@/data";
+import { getUserUrlForPlatform } from "@/lib/utils";
 
 export default function ProfileCard({ profile }: { profile: Profile }) {
   const { name, image, username, title, location, social, handles } = profile;

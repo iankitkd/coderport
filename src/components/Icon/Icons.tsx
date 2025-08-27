@@ -1,19 +1,20 @@
 import { ComponentType } from 'react';
 import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser, FaLock, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
-import { MdMail } from "react-icons/md";
+import { MdLogout, MdMail } from "react-icons/md";
 import { FcGoogle } from 'react-icons/fc';
 
 import { ImageIcon } from './ImageIcon';
 import { IconType } from 'react-icons';
 import { ImageProps } from 'next/image';
+import { CiLock } from 'react-icons/ci';
 
 type ReactIconComponent = IconType;
 type PNGIconComponent = ComponentType<Omit<ImageProps, 'src' | 'alt'>>;
 export type IconComponent = ReactIconComponent | PNGIconComponent;
 
-export type IconName = 'github' | 'linkedin' | 'email' | 'user' 
+export type IconName = 'github' | 'linkedin' | 'email' | 'user' | 'logout'
   | 'CodeForces' | 'CodeChef' | 'LeetCode' | 'LeetCodeDark' | 'GeeksForGeeks' | 'google'
-  | 'externalLink' | 'lock' | 'checkCircle' | 'exclamationTriangle';
+  | 'externalLink' | 'lock' | 'lockOutline' | 'checkCircle' | 'exclamationTriangle';
 
 export const Icons: Record<IconName, IconComponent> = {
   user: FaUser,
@@ -28,6 +29,8 @@ export const Icons: Record<IconName, IconComponent> = {
   GeeksForGeeks: () => <ImageIcon src="/logos/gfg.png" alt="GFG" />,
   google: FcGoogle,
   lock: FaLock,
+  lockOutline: CiLock,
+  logout: MdLogout,
   checkCircle: FaCheckCircle,
   exclamationTriangle: FaExclamationTriangle,
 };

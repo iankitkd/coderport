@@ -75,7 +75,7 @@ export function SignupFormContent() {
       backButtonHref={"/login"}
     >
         
-      <form onSubmit={handleSubmit(signupHandler)} className="space-y-6">
+      <form onSubmit={handleSubmit(signupHandler)} className="space-y-4">
         <TextInput
           label="Name"
           id="name"

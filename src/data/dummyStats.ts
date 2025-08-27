@@ -32,7 +32,7 @@ export const dummyRatings: PlatformRating[] = [
   // { name: "GeeksForGeeks", rating: 0 },
 ];
 
-const dummyContestsHistory: RatingHistoryEntry[] = [
+const leetcodeContestsHistory: RatingHistoryEntry[] = [
   {date: "", rating: 1400},
   {date: "", rating: 1579},
   {date: "", rating: 1814},
@@ -40,6 +40,34 @@ const dummyContestsHistory: RatingHistoryEntry[] = [
   {date: "", rating: 1978},
   {date: "", rating: 1914},
   {date: "", rating: 1943},
+  {date: "", rating: 1699},
+  {date: "", rating: 1893},
+  {date: "", rating: 2069},
+  {date: "", rating: 1913},
+  {date: "", rating: 2150},
+];
+const codechefContestsHistory: RatingHistoryEntry[] = [
+  {date: "", rating: 1200},
+  {date: "", rating: 1579},
+  {date: "", rating: 1314},
+  {date: "", rating: 1600},
+  {date: "", rating: 1978},
+  {date: "", rating: 1914},
+  {date: "", rating: 1943},
+  {date: "", rating: 1799},
+  {date: "", rating: 1893},
+  {date: "", rating: 2069},
+  {date: "", rating: 1913},
+  {date: "", rating: 2150},
+];
+const codeforcesContestsHistory: RatingHistoryEntry[] = [
+  {date: "", rating: 800},
+  {date: "", rating: 1179},
+  {date: "", rating: 914},
+  {date: "", rating: 1200},
+  {date: "", rating: 1578},
+  {date: "", rating: 1514},
+  {date: "", rating: 1343},
   {date: "", rating: 1699},
   {date: "", rating: 1893},
   {date: "", rating: 2069},
@@ -61,7 +89,7 @@ export const dummyData: PlatformsData = {
       medium: 452,
       hard: 148,
     },
-    contestsHistory: dummyContestsHistory,
+    contestsHistory: leetcodeContestsHistory,
   },
   codechef: {
     name: "",
@@ -70,6 +98,7 @@ export const dummyData: PlatformsData = {
     contests: 21,
     title: "",
     rating: 2011,
+    contestsHistory: codechefContestsHistory,
   },
   codeforces: {
     name: "",
@@ -78,5 +107,6 @@ export const dummyData: PlatformsData = {
     contests: 32,
     title: "",
     rating: 1876,
+    contestsHistory: codeforcesContestsHistory,
   },
 };
