@@ -1,8 +1,10 @@
+import { APP_NAME } from "@/data";
+
 export default function Footer() {
   return (
-    <footer className="py-2 text-center bg-background/20 border-t border-border">
-      <p className="text-muted-foreground">
-        &copy; {new Date().getFullYear()} My Coding Profile. All rights
+    <footer className="py-2 text-center border-t border-border">
+      <p className="text-muted-foreground text-sm">
+        &copy; {new Date().getFullYear()} {APP_NAME}. All rights
         reserved.
       </p>
     </footer>

@@ -11,7 +11,7 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth;
 
   const isApiAuthRoute = pathname.startsWith(apiAuthPrefix);
-  const isPublicRoute = publicRoutes.includes(pathname);
+  const isPublicRoute = publicRoutes.includes(pathname) || pathname.startsWith('/user');
   const isAuthRoute = authRoutes.includes(pathname);
 
   // Allow API auth endpoints

@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 import Icon from "../Icon";
-import { IconName } from "../Icon/icons";
+import { IconName } from "../Icon/Icons";
 import { Profile } from "@/types";
 import { getUserUrlForPlatform } from "@/lib/utils";
 
-export default function ProfileCard({ profile }: { profile: Profile }) {
+export default async function ProfileCard({ profile }: { profile: Profile }) {
   const { name, image, username, title, location, social, handles } = profile;
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6 space-y-2">
+    <div className="bg-white rounded-2xl shadow-lg p-6 space-y-2 border border-primary-border">
       <div className="flex flex-col items-center">
         <div className="bg-gray-200 rounded-full w-24 h-24 mb-2">
           {image ? (

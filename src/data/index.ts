@@ -1,3 +1,5 @@
+export const APP_NAME = "CoderPort";
+
 export const myUserName = "iankitkd";
 
 export const userProfile = {

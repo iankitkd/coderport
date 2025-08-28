@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
-import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser, FaLock, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
-import { MdLogout, MdMail } from "react-icons/md";
+import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser, FaLock, FaCheckCircle, FaExclamationTriangle, FaLaptopCode, FaEdit } from 'react-icons/fa';
+import { MdBarChart, MdLogout, MdMail } from "react-icons/md";
 import { FcGoogle } from 'react-icons/fc';
 
 import { ImageIcon } from './ImageIcon';
@@ -14,7 +14,8 @@ export type IconComponent = ReactIconComponent | PNGIconComponent;
 
 export type IconName = 'github' | 'linkedin' | 'email' | 'user' | 'logout'
   | 'CodeForces' | 'CodeChef' | 'LeetCode' | 'LeetCodeDark' | 'GeeksForGeeks' | 'google'
-  | 'externalLink' | 'lock' | 'lockOutline' | 'checkCircle' | 'exclamationTriangle';
+  | 'externalLink' | 'lock' | 'lockOutline' | 'checkCircle' | 'exclamationTriangle'
+  | 'laptopCode'| 'edit' | 'barChart';
 
 export const Icons: Record<IconName, IconComponent> = {
   user: FaUser,
@@ -33,4 +34,7 @@ export const Icons: Record<IconName, IconComponent> = {
   logout: MdLogout,
   checkCircle: FaCheckCircle,
   exclamationTriangle: FaExclamationTriangle,
+  laptopCode: FaLaptopCode,
+  edit: FaEdit,
+  barChart: MdBarChart,
 };

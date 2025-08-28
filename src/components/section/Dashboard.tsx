@@ -19,7 +19,7 @@ export default function Dashboard({
   data = dummyData,
 }: DashboardProps) {
   return (
-    <div className="flex flex-col md:flex-row gap-6 p-3">
+    <div className="flex flex-col md:flex-row gap-6 py-3">
       <section className="w-full md:w-1/3 lg:w-1/4">
         <ProfileCard profile={userProfile} />
       </section>

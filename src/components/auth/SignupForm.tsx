@@ -72,7 +72,7 @@ export function SignupFormContent() {
       desciption={"Enter your details to get started"}
       backButtonLabel={"Sign in"}
       backButtonDescription={"Already have an account?"}
-      backButtonHref={"/login"}
+      backButtonHref={`/login?callbackUrl=${encodeURIComponent(callbackUrl)}`}
     >
         
       <form onSubmit={handleSubmit(signupHandler)} className="space-y-4">
