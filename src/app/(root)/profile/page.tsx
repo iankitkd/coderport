@@ -5,7 +5,6 @@ import ProfileCard from "@/components/cards/ProfileCard";
 import Icon from "@/components/Icon";
 import { Button } from "@/components/ui/Button";
 
-import { dummyUserProfile } from "@/data/dummyStats";
 import { getUserProfile } from "@/actions/user";
 import { Profile } from "@/types";
 import Link from "next/link";
@@ -21,7 +20,9 @@ export default async function page() {
 
   const profile : Profile | null = await getUserProfile(user.id);
   if(!profile) return;
-  // const profile = dummyUserProfile;
+  if(!profile?.onboarded) {
+    redirect(`/onboarding`);
+  }
   const username = profile.username;
 
   return (

@@ -1,21 +1,23 @@
 import { ComponentType } from 'react';
+import { ImageIcon } from './ImageIcon';
+
 import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser, FaLock, FaCheckCircle, FaExclamationTriangle, FaLaptopCode, FaEdit } from 'react-icons/fa';
 import { MdBarChart, MdLogout, MdMail } from "react-icons/md";
 import { FcGoogle } from 'react-icons/fc';
-
-import { ImageIcon } from './ImageIcon';
 import { IconType } from 'react-icons';
 import { ImageProps } from 'next/image';
 import { CiLock } from 'react-icons/ci';
+import { FaLocationDot } from 'react-icons/fa6';
+import { FiUser } from 'react-icons/fi';
 
 type ReactIconComponent = IconType;
 type PNGIconComponent = ComponentType<Omit<ImageProps, 'src' | 'alt'>>;
 export type IconComponent = ReactIconComponent | PNGIconComponent;
 
 export type IconName = 'github' | 'linkedin' | 'email' | 'user' | 'logout'
-  | 'CodeForces' | 'CodeChef' | 'LeetCode' | 'LeetCodeDark' | 'GeeksForGeeks' | 'google'
+  | 'codeforces' | 'codechef' | 'leetcode' | 'leetcodedark' | 'geeksforgeeks' | 'google'
   | 'externalLink' | 'lock' | 'lockOutline' | 'checkCircle' | 'exclamationTriangle'
-  | 'laptopCode'| 'edit' | 'barChart';
+  | 'laptopCode'| 'edit' | 'barChart' | 'location' | 'user2';
 
 export const Icons: Record<IconName, IconComponent> = {
   user: FaUser,
@@ -23,11 +25,11 @@ export const Icons: Record<IconName, IconComponent> = {
   linkedin: FaLinkedin,
   email: MdMail,
   externalLink: FaExternalLinkAlt,
-  CodeForces: () => <ImageIcon src="/logos/codeforces.png" alt="Codeforces" />,
-  CodeChef: () => <ImageIcon src="/logos/codechef.png" alt="Codechef"/>,
-  LeetCode: () => <ImageIcon src="/logos/leetcode-light.png" alt="Leetcode" />,
-  LeetCodeDark: () => <ImageIcon src="/logos/leetcode-dark.png" alt="Leetcode Dark" />,
-  GeeksForGeeks: () => <ImageIcon src="/logos/gfg.png" alt="GFG" />,
+  codeforces: () => <ImageIcon src="/logos/codeforces.png" alt="Codeforces" />,
+  codechef: () => <ImageIcon src="/logos/codechef.png" alt="Codechef"/>,
+  leetcode: () => <ImageIcon src="/logos/leetcode-light.png" alt="Leetcode" />,
+  leetcodedark: () => <ImageIcon src="/logos/leetcode-dark.png" alt="Leetcode Dark" />,
+  geeksforgeeks: () => <ImageIcon src="/logos/gfg.png" alt="GFG" />,
   google: FcGoogle,
   lock: FaLock,
   lockOutline: CiLock,
@@ -37,4 +39,6 @@ export const Icons: Record<IconName, IconComponent> = {
   laptopCode: FaLaptopCode,
   edit: FaEdit,
   barChart: MdBarChart,
+  location: FaLocationDot,
+  user2: FiUser,
 };

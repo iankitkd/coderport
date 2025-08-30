@@ -49,6 +49,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     jwt: ({ token, user }) => {
       if (user) {
         token.sub = user.id;
+        // if(user.id) {
+        //   const dbUser = await getUserProfile(user.id);
+        //   token.onboarded = dbUser?.onboarded ?? false;
+        // }
       }
       return token;
     },
@@ -56,7 +60,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       ...session,
       user: {
         ...session.user,
-        id: token.sub
+        id: token.sub,
+        onboarded: token.onboarded ?? false,
       }
     }),
   },

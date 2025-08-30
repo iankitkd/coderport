@@ -6,7 +6,21 @@ import { Profile } from "@/types";
 import { getUserUrlForPlatform } from "@/lib/utils";
 
 export default async function ProfileCard({ profile }: { profile: Profile }) {
-  const { name, image, username, title, location, social, handles } = profile;
+  const { name, image, username, title, location } = profile;
+  const socials = {
+    ...(profile.github && { github: profile.github }),
+    ...(profile.linkedin && { linkedin: profile.linkedin }),
+    ...(profile.email && { email: profile.email}),
+  };
+  const handles = {
+    ...(profile.codeforces && { CodeForces: profile.codeforces }),
+    ...(profile.codechef && { CodeChef: profile.codechef }),
+    ...(profile.leetcode && { LeetCode: profile.leetcode }),
+    ...(profile.geeksforgeeks && { GeeksForGeeks: profile.geeksforgeeks }),
+  };
+
+  console.log(socials, handles, profile)
+
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 space-y-2 border border-primary-border">
@@ -29,8 +43,8 @@ export default async function ProfileCard({ profile }: { profile: Profile }) {
       </div>
 
       <div className="border-y border-gray-200 py-2 flex justify-center space-x-6">
-        {Object.entries(social).map(([key, value]) => (
-          <a href={value} key={key} target="_blank">
+        {Object.entries(socials).map(([key, value]) => (
+          <a href={getUserUrlForPlatform(key, value)} key={key} target="_blank">
             <Icon name={key as IconName} className="text-gray-800 w-8 h-8 hover:text-blue-500 hover:scale-[1.05] transition-colors" />
           </a>
         ))}
@@ -42,13 +56,13 @@ export default async function ProfileCard({ profile }: { profile: Profile }) {
       </div>
 
       <div className="">
-        <h3 className="font-semibold text-lg text-gray-700 mb-3">Coding Handles</h3>
+        <h3 className="font-semibold text-lg text-gray-700 mb-3">{Object.entries(handles).length > 0 && "Coding Handles"}</h3>
         <div className="flex flex-col gap-1">
           {Object.entries(handles).map(([key, value]) => (
-            <a href={getUserUrlForPlatform(key, value)} key={key} target="_blank">
+            <a href={getUserUrlForPlatform(key.toLowerCase(), value)} key={key} target="_blank">
               <div className="flex items-center justify-between px-2 py-2 rounded-2xl hover:bg-gray-100 group">
                 <div className="flex gap-2">
-                  <Icon name={key as IconName} className="text-gray-800 w-8 h-8" />
+                  <Icon name={key.toLowerCase() as IconName} className="text-gray-800 w-8 h-8" />
                   <span className="font-medium text-gray-700">{key}</span>
                 </div>
 

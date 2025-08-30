@@ -43,12 +43,13 @@ model Account {
 }
 
 model Profile {
-  id       String  @id @default(cuid())
-  name     String
-  username String  @unique
-  image    String?
-  title    String?
-  location String?
+  id        String  @id @default(cuid())
+  name      String
+  username  String  @unique
+  onboarded Boolean @default(false)
+  image     String?
+  title     String?
+  location  String?
 
   // Social media links
   github   String?

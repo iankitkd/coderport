@@ -1,7 +1,7 @@
 "use server"
 
 import { prisma } from "@/lib/prisma";
-import { SignupValues } from "@/lib/validators";
+import { profileSchema, ProfileValues, SignupValues } from "@/lib/validators";
 import { Profile } from "@/types";
 
 export const createUser = async ({name, email, password}: SignupValues) => {
@@ -13,29 +13,41 @@ export const createUser = async ({name, email, password}: SignupValues) => {
   return user;
 };
 
+export const getUserByID = async (id: string) => {
+  const user = await prisma.user.findUnique({where: { id },});
+  return user;
+};
 export const getUserByEmail = async (email: string) => {
   const user = await prisma.user.findUnique({where: { email },});
   return user;
 };
 
-export const getUserProfile = async (id: string): Promise<Profile | null> => {
-  const profileData = await prisma.profile.findUnique({where: {id}});
+export const getUserProfile = async (userId: string): Promise<Profile | null> => {
+  const profileData = await prisma.profile.findUnique({where: {userId}});
 
-  if(!profileData) return null;
+  return profileData as Profile;
+}
 
-  const transformedData = {
-    ...profileData,
-    social: {
-      github: profileData.github,
-      linkedin: profileData.linkedin,
-      email: profileData.email
-    },
-    handles: {
-      codeforces: profileData.codeforces,
-      codechef: profileData.codechef,
-      leetcode: profileData.leetcode,
-      geeksforgeeks: profileData.geeksforgeeks
+export const updateUserProfile = async (userId:string, values: ProfileValues) => {
+  try {
+    const validatedFields = profileSchema.safeParse(values);
+    
+    if (!validatedFields.success) {
+      return { success: false, message: "Invalid fields!" };
     }
-  };
-  return transformedData as Profile;
+
+    const data = validatedFields.data;
+    await prisma.profile.upsert({
+      where: { userId },
+      update: {...data, onboarded: true},
+      create: {
+        ...data,
+        user: { connect: { id: userId } },
+      },
+    });
+
+    return { success: true, message: "Profile update successfully!" };
+  } catch (error) {
+    return { success: false, message: "Something went wrong", error: error };
+  }
 }

@@ -1,20 +1,19 @@
 export interface Profile {
   name: string;
   username: string;
+  onboarded: boolean;
   image?: string;
   title?: string;
   location?: string;
-  social: {
-    github?: string;
-    linkedin?: string;
-    email?: string;
-  };
-  handles: {
-    CodeForces?: string;
-    CodeChef?: string;
-    LeetCode?: string;
-    GeeksForGeeks?: string;
-  };
+
+  github?: string;
+  linkedin?: string;
+  email?: string;
+
+  codeforces?: string;
+  codechef?: string;
+  leetcode?: string;
+  geeksforgeeks?: string;
 }
 
 export type PlatformsType = "LeetCode" | "CodeForces" | "CodeChef" | "GeeksForGeeks";

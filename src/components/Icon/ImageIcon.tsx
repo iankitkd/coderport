@@ -5,6 +5,6 @@ export type ImageIconProps = Omit<ImageProps, 'src' | 'alt'> & {
   alt: string;
 };
 
-export const ImageIcon: React.FC<ImageIconProps> = ({ src, alt, width = 26, height = 26, ...props }) => (
+export const ImageIcon: React.FC<ImageIconProps> = ({ src, alt, width = 24, height = 24, ...props }) => (
   <Image src={src} alt={alt} width={width} height={height} {...props} />
 );

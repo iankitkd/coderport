@@ -13,7 +13,6 @@ import FormSucess from "../shared/FormSuccess";
 
 import { signupSchema, SignupValues } from "@/lib/validators";
 import { signup } from "@/actions/signup";
-import { DEFAULT_SIGNIN_REDIRECT } from "@/routes";
 
 export default function SignupForm() {
   return(
@@ -30,7 +29,7 @@ export function SignupFormContent() {
 
   const router = useRouter();
   const params = useSearchParams();
-  const callbackUrl = params?.get('callbackUrl') || DEFAULT_SIGNIN_REDIRECT;
+  const callbackUrl = params?.get('callbackUrl') || 'DEFAULT_SIGNIN_REDIRECT';
 
   const {
     register,
@@ -53,7 +52,7 @@ export function SignupFormContent() {
       const res = await signup(values);
       if(res.success) {
         setSuccess(res.message);
-        router.push(callbackUrl);
+        router.push(`/onboarding?callbackUrl=${encodeURIComponent(callbackUrl)}`);
       } else {
         setError(res.message);
       }
@@ -72,7 +71,7 @@ export function SignupFormContent() {
       desciption={"Enter your details to get started"}
       backButtonLabel={"Sign in"}
       backButtonDescription={"Already have an account?"}
-      backButtonHref={`/login?callbackUrl=${encodeURIComponent(callbackUrl)}`}
+      backButtonHref={callbackUrl ? `/login?callbackUrl=${encodeURIComponent(callbackUrl)}`: `/login`}
     >
         
       <form onSubmit={handleSubmit(signupHandler)} className="space-y-4">

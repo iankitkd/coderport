@@ -6,17 +6,16 @@ export const dummyUserProfile = {
   image: "",
   title: "Senior Software Engineer",
   location: "San Francisco, CA",
-  social: {
-    github: "#",
-    linkedin: "#",
-    email: "#",
-  },
-  handles: {
-    LeetCode: "",
-    CodeForces: "",
-    CodeChef: "",
-    GeeksForGeeks: "",
-  },
+  onboarded: true,
+  
+  github: "#",
+  linkedin: "#",
+  email: "#",
+
+  LeetCode: "",
+  CodeForces: "",
+  CodeChef: "",
+  GeeksForGeeks: "",
 };
 
 export const dummyStats = {

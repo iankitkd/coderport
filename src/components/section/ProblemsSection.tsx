@@ -22,7 +22,7 @@ export default function ProblemsSection({
   let gfgPieChartData: PieChartDataEntry[] = [];
   let gfgTotal = 0;
   if(gfgProblems) {
-    gfgPieChartData = Object.entries(gfgProblems).filter(([key,_]) => key !== "total").map(([key, value], index) => ({
+    gfgPieChartData = Object.entries(gfgProblems).filter(([key]) => key !== "total").map(([key, value], index) => ({
       "name": key,
       "value": value,
       "color": COLORS[index],

@@ -30,7 +30,7 @@ export function LoginFormContent() {
 
   const router = useRouter();
   const params = useSearchParams();
-  const callbackUrl = params?.get('callbackUrl') || DEFAULT_SIGNIN_REDIRECT;
+  const callbackUrl = params?.get('callbackUrl');
   const {
     register,
     handleSubmit,
@@ -51,7 +51,7 @@ export function LoginFormContent() {
       const res = await signin(values);
       if(res.success) {
         setSuccess(res.message);
-        router.push(callbackUrl);
+        router.push(callbackUrl || DEFAULT_SIGNIN_REDIRECT);
       } else {
         setError(res.message);
       }
@@ -70,7 +70,7 @@ export function LoginFormContent() {
       desciption={"Sign in to continue"}
       backButtonLabel={"Sign up"}
       backButtonDescription={"Don't have a account?"}
-      backButtonHref={`/signup?callbackUrl=${encodeURIComponent(callbackUrl)}`}
+      backButtonHref={callbackUrl ? `/signup?callbackUrl=${encodeURIComponent(callbackUrl)}` : `/signup`}
     >
         
       <form onSubmit={handleSubmit(signinHandler)} className="space-y-4">

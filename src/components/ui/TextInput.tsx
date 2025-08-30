@@ -9,10 +9,12 @@ type TextInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>,("name" &
   error?: string;
   register?: UseFormRegisterReturn; // from register("field")
   iconName?: IconName;
+  showRequired?: boolean;
 };
 
-const TextInput = ({ label, error, register, iconName, ...rest }: TextInputProps) => {
+const TextInput = ({ label, error, register, iconName, showRequired = false, ...rest }: TextInputProps) => {
   return (
+    <div>
     <div className="relative w-full py-2">
       <input
           {...register} // name, ref, onChange, onBlur
@@ -27,11 +29,12 @@ const TextInput = ({ label, error, register, iconName, ...rest }: TextInputProps
         >
           {iconName && (<Icon name={iconName} className="" />)}
           <label htmlFor={rest.id} className="">
-            {label}
+            {label}{showRequired && <span className="text-red-500">*</span>}
           </label>
       </div>
       )}
-      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+    </div>
+    {error && <p className="text-red-500 text-sm mb-1">{error}</p>}
     </div>
   );
 };

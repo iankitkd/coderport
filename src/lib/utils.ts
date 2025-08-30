@@ -58,16 +58,25 @@ export const getUserUrlForPlatform = (platform: string, username: string) => {
 
   let url = "";
   switch (platform) {
-    case "LeetCode":
+    case "github":
+      url = `https://github.com/${username}`;
+      break;
+    case "linkedin":
+      url = `https://linkedin.com/in/${username}`;
+      break;
+    case "email":
+      url = `mailto:${username}`;
+      break;
+    case "leetcode":
       url = `https://leetcode.com/u/${username}`;
       break;
-    case "CodeForces":
+    case "codeforces":
       url = `https://codeforces.com/profile/${username}`;
       break;
-    case "CodeChef":
+    case "codechef":
       url = `https://codechef.com/users/${username}`;
       break;
-    case "GeeksForGeeks":
+    case "geeksforgeeks":
       url = `https://geeksforgeeks.org/user/${username}`;
       break;
     default:
