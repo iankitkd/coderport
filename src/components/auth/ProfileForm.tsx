@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -14,8 +14,9 @@ import TextInput from "../ui/TextInput";
 
 import { profileSchema, ProfileValues } from "@/lib/validators";
 import { DEFAULT_SIGNIN_REDIRECT } from "@/routes";
-import { updateUserProfile } from "@/actions/user";
+import { isUsernameAvailable, updateUserProfile } from "@/actions/user";
 import { Profile } from "@/types";
+import { debounce } from "@/utils/debounce";
 
 interface ProfileFormProps {
   userId: string;
@@ -35,7 +36,7 @@ export default function ProfileForm({ mode, userId, userName, initialData }: Pro
 export function ProfileFormContent({mode, userId, userName, initialData}: ProfileFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
+  const [formError, setFormError] = useState("");
 
   const router = useRouter();
   const params = useSearchParams();
@@ -44,14 +45,17 @@ export function ProfileFormContent({mode, userId, userName, initialData}: Profil
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    setValue,
+    setError,
+    clearErrors,
+    formState: {errors},
   } = useForm<ProfileValues>({
     resolver: zodResolver(profileSchema),
     defaultValues: initialData  || {name: userName}
   });
 
   const profileHandle = async (values: ProfileValues) => {
-    setError("");
+    setFormError("");
     setSuccess("");
     setIsLoading(true);
     try {
@@ -60,14 +64,44 @@ export function ProfileFormContent({mode, userId, userName, initialData}: Profil
         setSuccess(res.message);
         router.push(callbackUrl || DEFAULT_SIGNIN_REDIRECT);
       } else {
-        setError(res.message);
+        setFormError(res.message);
       }
     } catch (error) {
-      setError("Something went wrong!");
+      setFormError("Something went wrong!");
       console.log(error);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const checkAvailability = useMemo(
+    () => debounce(async (username: string) => {
+      if (username.trim() === "") {
+        clearErrors("username");
+        return;
+      }
+
+      try {
+        const isAvailable = await isUsernameAvailable(username);
+
+        if (isAvailable) {
+          clearErrors("username");
+        } else {
+          setError("username", {
+            type: "manual",
+            message: "Username is already taken.",
+          });
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }, 1000)
+  , [clearErrors, setError]);
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const username = e.target.value;
+    setValue("username", username);
+    checkAvailability(username);
   };
 
   return (
@@ -119,6 +153,7 @@ export function ProfileFormContent({mode, userId, userName, initialData}: Profil
                 id="username"
                 type="text"
                 register={register("username")}
+                onChange={handleUsernameChange}
                 error={errors.username?.message}
                 iconName="user"
                 showRequired={true}
@@ -225,7 +260,7 @@ export function ProfileFormContent({mode, userId, userName, initialData}: Profil
 
         <div className="max-w-md mx-auto space-y-4">
           {success && <FormSucess message={success} />}
-          {error && <FormError message={error} />}
+          {formError && <FormError message={formError} />}
 
           <Button
             type="submit"

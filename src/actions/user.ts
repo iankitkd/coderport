@@ -57,3 +57,19 @@ export const updateUserProfile = async (userId:string, values: ProfileValues) =>
     return { success: false, message: "Something went wrong", error: error };
   }
 }
+
+export const isUsernameAvailable = async(username: string) : Promise<boolean> => {
+  if(!username) return false;
+
+  try {
+    const profile = await prisma.profile.findFirst({where: {username}});
+    if(profile) {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+
+}
