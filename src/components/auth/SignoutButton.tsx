@@ -4,19 +4,21 @@ import { useState } from "react";
 import { signOut } from "next-auth/react";
 import SignoutModal from "./SignoutModal";
 import Icon from "../Icon";
+import { Button } from "../ui/Button";
 
 export default function SignoutButton() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div
+      <Button
+        variant="destructive"
         onClick={() => setIsOpen(true)}
-        className="flex gap-1 items-center cursor-pointer font-medium text-lg px-4 py-1 rounded-full hover:bg-gray-200"
+        className="rounded-xl px-1 w-full text-nowrap flex items-center gap-2"
       >
         <Icon name="logout" />
-        Logout
-      </div>
+        Signout
+      </Button>
 
       {isOpen && (
         <SignoutModal 

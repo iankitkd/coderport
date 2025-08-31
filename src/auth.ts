@@ -61,7 +61,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       user: {
         ...session.user,
         id: token.sub,
-        onboarded: token.onboarded ?? false,
+        // onboarded: token.onboarded ?? false,
       }
     }),
   },

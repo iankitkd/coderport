@@ -19,19 +19,20 @@ import { Profile } from "@/types";
 
 interface ProfileFormProps {
   userId: string;
+  userName?: string;
   mode: "onboarding" | "edit";
   initialData: Profile | null;
 }
 
-export default function ProfileForm({ mode, userId, initialData }: ProfileFormProps) {
+export default function ProfileForm({ mode, userId, userName, initialData }: ProfileFormProps) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <ProfileFormContent mode={mode} userId={userId} initialData={initialData}/>
+      <ProfileFormContent mode={mode} userId={userId} userName={userName} initialData={initialData}/>
     </Suspense>
   )
 }
 
-export function ProfileFormContent({mode, userId, initialData}: ProfileFormProps) {
+export function ProfileFormContent({mode, userId, userName, initialData}: ProfileFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -46,7 +47,7 @@ export function ProfileFormContent({mode, userId, initialData}: ProfileFormProps
     formState: { errors },
   } = useForm<ProfileValues>({
     resolver: zodResolver(profileSchema),
-    defaultValues: initialData  || {}
+    defaultValues: initialData  || {name: userName}
   });
 
   const profileHandle = async (values: ProfileValues) => {

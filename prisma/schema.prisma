@@ -46,7 +46,7 @@ model Profile {
   id        String  @id @default(cuid())
   name      String
   username  String  @unique
-  onboarded Boolean @default(false)
+  onboarded Boolean
   image     String?
   title     String?
   location  String?

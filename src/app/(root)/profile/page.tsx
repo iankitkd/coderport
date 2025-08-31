@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { getUserProfile } from "@/actions/user";
 import { Profile } from "@/types";
 import Link from "next/link";
+import SignoutButton from "@/components/auth/SignoutButton";
 
 export default async function page() {
   const session = await auth();
@@ -52,15 +53,7 @@ export default async function page() {
           </Button>
         </Link>
 
-        <Link href={`/logout`}>
-          <Button
-            variant="destructive"
-            className="rounded-xl px-1 w-full text-nowrap flex items-center gap-2"
-          >
-            <Icon name="logout" />
-            Signout
-          </Button>
-        </Link>
+        <SignoutButton />
       </div>
     </div>
   );

@@ -19,9 +19,6 @@ export default async function ProfileCard({ profile }: { profile: Profile }) {
     ...(profile.geeksforgeeks && { GeeksForGeeks: profile.geeksforgeeks }),
   };
 
-  console.log(socials, handles, profile)
-
-
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 space-y-2 border border-primary-border">
       <div className="flex flex-col items-center">

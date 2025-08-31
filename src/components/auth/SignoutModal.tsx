@@ -20,13 +20,13 @@ export default function SignoutModal({close, handleSignout}: SignoutModalProps) 
       <ConfirmationCard
         title="Confirm Logout"
         description="Are you sure you want to log out?"
-        confirmText="Logout"
+        confirmText="Signout"
         cancelText="Cancel"
         onConfirm={onConfirm}
         onCancel={close}
         confirmBtnVariant="destructive"
         disabled={isLoading}
-        loadingText="Logging out..."
+        loadingText="Signing out..."
       />
     </ModalWrapper>
   )

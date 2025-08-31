@@ -21,6 +21,7 @@ export default async function page() {
       <ProfileForm 
         mode="onboarding"
         userId={user.id} 
+        userName={user.name || ""}
         initialData={profile}
       />
     </div>

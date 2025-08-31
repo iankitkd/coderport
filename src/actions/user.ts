@@ -36,10 +36,10 @@ export const updateUserProfile = async (userId:string, values: ProfileValues) =>
       return { success: false, message: "Invalid fields!" };
     }
 
-    const data = validatedFields.data;
+    const data = {...(validatedFields.data), onboarded: true};
     await prisma.profile.upsert({
       where: { userId },
-      update: {...data, onboarded: true},
+      update: data,
       create: {
         ...data,
         user: { connect: { id: userId } },
