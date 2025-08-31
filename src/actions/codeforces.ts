@@ -1,4 +1,5 @@
 import apiRequest from "@/lib/apiRequest";
+import { PlatformData } from "@/types";
 
 type ContestType = {
   contestName: string;
@@ -7,7 +8,9 @@ type ContestType = {
   ratingUpdateTimeSeconds: number;
 }
 
-export const fetchCodeForcesData = async (username: string) => {
+export const fetchCodeForcesData = async (username: string) : Promise<PlatformData | null> => {
+  if(!username) return null;
+
   try {
     const [response, ratingResponse, statusResponse] = await 
       Promise.all([

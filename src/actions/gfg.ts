@@ -3,7 +3,9 @@ import * as cheerio from "cheerio";
 import { PlatformData } from "@/types";
 import apiRequest from "@/lib/apiRequest";
 
-export const fetchGFGData = async (username: string): Promise<PlatformData> => {
+export const fetchGFGData = async (username: string): Promise<PlatformData | null> => {
+  if(!username) return null;
+  
   try {
     const html = await apiRequest(`https://www.geeksforgeeks.org/user/${username}`, "GET", {}, "text");
 

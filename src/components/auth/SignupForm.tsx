@@ -29,7 +29,7 @@ export function SignupFormContent() {
 
   const router = useRouter();
   const params = useSearchParams();
-  const callbackUrl = params?.get('callbackUrl') || 'DEFAULT_SIGNIN_REDIRECT';
+  const callbackUrl = params?.get('callbackUrl');
 
   const {
     register,
@@ -52,7 +52,7 @@ export function SignupFormContent() {
       const res = await signup(values);
       if(res.success) {
         setSuccess(res.message);
-        router.push(`/onboarding?callbackUrl=${encodeURIComponent(callbackUrl)}`);
+        router.push(`/onboarding`);
       } else {
         setError(res.message);
       }

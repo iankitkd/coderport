@@ -1,22 +1,21 @@
 import { PlatformRating, PlatformsData, Profile, StatsInterface } from "@/types";
-import { dummyData, dummyRatings, dummyStats, dummyUserProfile } from "@/data/dummyStats";
 import ProfileCard from "../cards/ProfileCard";
 import StatsSection from "./StatsSection";
 import ContestsSection from "./ContestsSection";
 import ProblemsSection from "./ProblemsSection";
 
 interface DashboardProps {
-  userProfile?: Profile;
-  userStats?: StatsInterface;
-  userRatings?: PlatformRating[];
-  data?: PlatformsData;
+  userProfile: Profile;
+  userStats: StatsInterface;
+  userRatings: PlatformRating[];
+  data: PlatformsData;
 }
 
 export default function Dashboard({
-  userProfile = dummyUserProfile,
-  userStats = dummyStats,
-  userRatings = dummyRatings,
-  data = dummyData,
+  userProfile,
+  userStats,
+  userRatings,
+  data,
 }: DashboardProps) {
   return (
     <div className="flex flex-col md:flex-row gap-6 py-3">

@@ -12,10 +12,10 @@ export const dummyUserProfile = {
   linkedin: "#",
   email: "#",
 
-  LeetCode: "",
-  CodeForces: "",
-  CodeChef: "",
-  GeeksForGeeks: "",
+  leetcode: "#",
+  codeforces: "#",
+  codechef: "#",
+  geeksforgeeks: "#",
 };
 
 export const dummyStats = {
@@ -108,4 +108,5 @@ export const dummyData: PlatformsData = {
     rating: 1876,
     contestsHistory: codeforcesContestsHistory,
   },
+  gfg: null
 };

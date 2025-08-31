@@ -10,7 +10,7 @@ export default async function Header() {
   const user = session?.user;
 
   return (
-    <header className="w-full sticky top-0 flex justify-between items-center px-4 md:px-8 py-2 rounded-b-2xl bg-white border-x border-b border-primary-border">
+    <header className="w-full sticky top-0 z-10 flex justify-between items-center px-4 md:px-8 py-2 rounded-b-2xl bg-white border-x border-b border-primary-border">
       <Link href={"/"}>
         <div className="flex gap-2 items-center text-2xl font-semibold">
           <span>

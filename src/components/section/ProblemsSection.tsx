@@ -49,11 +49,11 @@ export default function ProblemsSection({
         />
       )}
 
-      {gfgProblems && (
+      {gfgProblems && gfgTotal > 0 && (
         <ProblemsCardPie data={gfgPieChartData} label="Solved on GeeksForGeeks" total={gfgTotal} />
       )}
 
-      {cpTotal && (
+      {cpTotal > 0 && (
         <ProblemsCardPie data={cpPieChartData} label="Competitive Programming" total={cpTotal} />
       )}
     </div>

@@ -54,7 +54,7 @@ export const getContestRatings = (data: PlatformsData) => {
 };
 
 export const getUserUrlForPlatform = (platform: string, username: string) => {
-  if (!username) return "#";
+  if (!username || username=="#") return "#";
 
   let url = "";
   switch (platform) {

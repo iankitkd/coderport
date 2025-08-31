@@ -41,10 +41,10 @@ export type PlatformRating = {
 };
 
 export interface PlatformsData {
-  leetcode?: PlatformData;
-  codeforces?: PlatformData;
-  codechef?: PlatformData;
-  gfg?: PlatformData;
+  leetcode: PlatformData | null;
+  codeforces: PlatformData | null;
+  codechef: PlatformData | null;
+  gfg: PlatformData | null;
 }
 
 export interface PlatformData {

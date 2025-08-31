@@ -21,7 +21,7 @@ export default function RatingsCard({selectedPlatform, setSelectedPlatform, rati
             onClick={() => setSelectedPlatform(rating.name)}
           >
             <div className="flex gap-2 col-span-3">
-              <Icon name={rating.name as IconName} className="text-gray-800 w-8 h-8" />
+              <Icon name={rating.name.toLowerCase() as IconName} className="text-gray-800 w-8 h-8" />
               <span className="font-medium text-gray-700">{rating.name}</span>
             </div>
 

@@ -9,7 +9,9 @@ interface SubmissionStats {
   submissions: number;
 }
 
-export const fetchLeetCodeData = async (username: string): Promise<PlatformData> => {
+export const fetchLeetCodeData = async (username: string): Promise<PlatformData | null> => {
+  if(!username) return null;
+
   const query = `
     query getUserProfile($username: String!) {
       matchedUser(username: $username) {

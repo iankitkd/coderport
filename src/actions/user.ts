@@ -22,8 +22,14 @@ export const getUserByEmail = async (email: string) => {
   return user;
 };
 
-export const getUserProfile = async (userId: string): Promise<Profile | null> => {
+export const getProfile = async (userId: string): Promise<Profile | null> => {
   const profileData = await prisma.profile.findUnique({where: {userId}});
+
+  return profileData as Profile;
+}
+
+export const getProfileByUsername = async (username: string): Promise<Profile | null> => {
+  const profileData = await prisma.profile.findUnique({where: {username}});
 
   return profileData as Profile;
 }

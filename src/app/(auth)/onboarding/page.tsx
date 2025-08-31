@@ -1,6 +1,6 @@
 import { auth } from '@/auth';
 import ProfileForm from '@/components/auth/ProfileForm'
-import { getUserProfile } from '@/actions/user';
+import { getProfile } from '@/actions/user';
 import { redirect } from 'next/navigation';
 
 export default async function page() {
@@ -10,7 +10,7 @@ export default async function page() {
     return;
   }
 
-  const profile = await getUserProfile(user.id);
+  const profile = await getProfile(user.id);
 
   if(profile?.onboarded) {
     redirect('/profile');

@@ -13,7 +13,9 @@ interface CodeChefHistoryEntry {
   reason: string | null;
 }
 
-export const fetchCodeChefData = async (username: string): Promise<PlatformData> => {
+export const fetchCodeChefData = async (username: string): Promise<PlatformData | null> => {
+  if(!username) return null;
+  
   try {
     const html = await apiRequest(`https://www.codechef.com/users/${username}`, "GET", {}, "text");
     

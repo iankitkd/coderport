@@ -13,7 +13,8 @@ export default function ContestsSection({
   userRatings: PlatformRating[];
   data: PlatformsData;
 }) {
-  const [selectedPlatform, setSelectedPlatform] = useState<PlatformsType>("LeetCode");
+  const platform = data.leetcode ? "LeetCode" : data.codeforces ? "CodeForces" : "CodeChef";
+  const [selectedPlatform, setSelectedPlatform] = useState<PlatformsType>(platform);
   const [contests, setContests] = useState(data.leetcode?.contests || 0);
   const [contestsHistory, setContestsHistory] = useState(data.leetcode?.contestsHistory);
 
@@ -44,7 +45,7 @@ export default function ContestsSection({
           <h2 className="text-xl font-semibold">Contests Participated</h2>
           <div className="text-2xl font-bold">{contests}</div>
         </div>
-        {contestsHistory && (
+        {contestsHistory && contestsHistory?.length > 0 && (
           <div className="w-full h-50">
             <MyLineChart chartData={contestsHistory} />
           </div>
