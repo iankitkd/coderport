@@ -21,7 +21,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     
     const variantClasses = {
       default: "bg-primary text-white hover:opacity-95",
-      gradient: "bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end hover:from-gradient-start-hover hover:to-gradient-end-hover text-white text-lg py-2 shadow-md hover:shadow-lg",
+      gradient: "bg-gradient-to-r from-gradient-start to-gradient-end hover:from-gradient-start-hover hover:to-gradient-end-hover text-white text-lg py-2 shadow-md hover:shadow-lg",
       outline: "border border-primary text-primary hover:bg-primary-hover",
       ghost: "hover:bg-primary-hover text-primary",
       link: "text-indigo-600 hover:underline",

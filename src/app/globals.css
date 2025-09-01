@@ -3,19 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: oklch(70.5% 0.213 47.604);
-  --primary-hover: oklch(95.4% 0.038 75.164);
-  --primary-border: oklch(90.1% 0.076 70.697);
+  --primary: oklch(51.1% 0.262 276.966);
+  --primary-hover: oklch(93% 0.034 272.788);
+  --primary-border: oklch(78.5% 0.115 274.713);
   --muted-foreground: oklch(55.1% 0.027 264.364);
   --border: oklch(87.2% 0.01 258.338);
 
-  --gradient-start: oklch(75% 0.183 55.934);
-  --gradient-mid: oklch(70.5% 0.213 47.604);
-  --gradient-end: oklch(64.6% 0.222 41.116);
-  --gradient-start-hover: oklch(64.6% 0.222 41.116);
-  --gradient-end-hover: oklch(55.3% 0.195 38.402);
-  --gradient-start-bg: oklch(98.5% 0.002 247.839);
-  --gradient-end-bg: oklch(96.7% 0.003 264.542);
+  --gradient-start: oklch(51.1% 0.262 276.966);
+  --gradient-end: oklch(70.4% 0.14 182.503);
+  --gradient-start-hover: oklch(45.7% 0.24 277.023);
+  --gradient-end-hover: oklch(59.6% 0.145 163.225);
+  --gradient-start-bg: oklch(96.2% 0.018 272.314);
+  --gradient-end-bg: oklch(97.9% 0.021 166.113);
 }
 
 @theme inline {
@@ -28,7 +27,7 @@
   --color-border: var(--border);
 
   --color-gradient-start: var(--gradient-start);
-  --color-gradient-mid: var(--gradient-mid);
+  /* --color-gradient-mid: var(--gradient-mid); */
   --color-gradient-end: var(--gradient-end);
   --color-gradient-start-hover: var(--gradient-start-hover);
   --color-gradient-end-hover: var(--gradient-end-hover);

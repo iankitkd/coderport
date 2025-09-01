@@ -1,13 +1,13 @@
 import { ComponentType } from 'react';
 import { ImageIcon } from './ImageIcon';
 
-import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser, FaLock, FaCheckCircle, FaExclamationTriangle, FaLaptopCode, FaEdit } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaLinkedin, FaUser, FaLock, FaCheckCircle, FaExclamationTriangle, FaLaptopCode, FaEdit, FaClock } from 'react-icons/fa';
 import { MdBarChart, MdLogout, MdMail } from "react-icons/md";
 import { FcGoogle } from 'react-icons/fc';
 import { IconType } from 'react-icons';
 import { ImageProps } from 'next/image';
 import { CiLock } from 'react-icons/ci';
-import { FaLocationDot } from 'react-icons/fa6';
+import { FaChartSimple, FaCode, FaLocationDot } from 'react-icons/fa6';
 import { FiUser } from 'react-icons/fi';
 
 type ReactIconComponent = IconType;
@@ -17,7 +17,7 @@ export type IconComponent = ReactIconComponent | PNGIconComponent;
 export type IconName = 'github' | 'linkedin' | 'email' | 'user' | 'logout'
   | 'codeforces' | 'codechef' | 'leetcode' | 'leetcodedark' | 'geeksforgeeks' | 'google'
   | 'externalLink' | 'lock' | 'lockOutline' | 'checkCircle' | 'exclamationTriangle'
-  | 'laptopCode'| 'edit' | 'barChart' | 'location' | 'user2';
+  | 'laptopCode'| 'edit' | 'barChart' | 'location' | 'user2' | 'chart' | 'code' | 'clock';
 
 export const Icons: Record<IconName, IconComponent> = {
   user: FaUser,
@@ -41,4 +41,7 @@ export const Icons: Record<IconName, IconComponent> = {
   barChart: MdBarChart,
   location: FaLocationDot,
   user2: FiUser,
+  chart: FaChartSimple,
+  code: FaCode,
+  clock: FaClock,
 };
