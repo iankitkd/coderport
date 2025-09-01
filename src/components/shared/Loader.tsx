@@ -1,6 +1,6 @@
 
 export default function Loader() {
-  const loaderCss = "bg-gray-200 rounded-xl animate-pulse";
+  const loaderCss = "bg-background rounded-xl animate-pulse";
 
   return (
     <div className="flex flex-col md:flex-row gap-6 p-3">

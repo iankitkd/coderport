@@ -37,8 +37,8 @@ export default function ProblemsSection({
   ]
 
   return (
-    <div className="bg-white rounded-xl shadow px-6 py-4 w-full space-y-2">
-      <h2 className="text-xl font-semibold text-center w-full mb-3 border-b border-gray-200">
+    <div className="bg-card rounded-xl shadow px-6 py-4 w-full space-y-2">
+      <h2 className="text-xl font-semibold text-center w-full mb-3 border-b border-border">
         Problems Solved
       </h2>
       {leetcodeProblems && (

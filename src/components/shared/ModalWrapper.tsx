@@ -27,7 +27,7 @@ export default function ModalWrapper({ children, title, onClose }: ModalWrapperP
         {onClose && (
           <button
             onClick={onClose}
-            className="absolute top-1 right-1 px-2 py-1 font-bold text-xl text-black cursor-pointer hover:bg-secondary rounded-xl"
+            className="absolute top-1 right-1 px-2 py-1 font-bold text-xl text-foreground cursor-pointer hover:bg-secondary rounded-xl"
             aria-label="Close modal"
           >
             ✕

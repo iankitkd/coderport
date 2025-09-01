@@ -27,13 +27,13 @@ export default function AuthFormWrapper({
 }: AuthFormWrapperProps) {
 
   return (
-    <div className={cn("w-full min-h-screen max-w-md bg-white rounded-2xl p-5 md:p-8", className)}>
+    <div className={cn("w-full min-h-screen max-w-md bg-card rounded-2xl p-5 md:p-8", className)}>
       <div className="text-center mb-4">
         <div className="mx-auto bg-gradient-to-br from-gradient-start via-gradient-mid to-gradient-end w-14 h-14 rounded-full flex items-center justify-center mb-2">
           <Icon name="lock" className="h-6 w-6 text-white" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">{label}</h1>
-        <p className="text-gray-600 mt-2">{desciption}</p>
+        <h1 className="text-3xl font-bold text-secondary-foreground">{label}</h1>
+        <p className="text-tertiary-foreground mt-2">{desciption}</p>
       </div>
 
       {children}
@@ -43,7 +43,7 @@ export default function AuthFormWrapper({
       )}
 
       <div className="flex justify-center gap-2 text-sm mt-6">
-        <span className="text-gray-600">{backButtonDescription}</span>
+        <span className="text-tertiary-foreground">{backButtonDescription}</span>
         {backButtonHref && backButtonLabel && (
           <Link href={backButtonHref} className="text-indigo-600 hover:underline hover:text-indigo-800 transition">
             {backButtonLabel}

@@ -18,7 +18,7 @@ export default function ProblemsCardPie({
         <div className="relative flex w-1/2 h-30">
           <MyPieChart data={data} />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <div className="text-2xl font-bold text-gray-800">{total}</div>
+            <div className="text-2xl font-bold text-secondary-foreground">{total}</div>
           </div>
         </div>
         <div className="w-1/2 px-2">

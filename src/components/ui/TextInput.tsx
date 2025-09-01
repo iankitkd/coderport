@@ -20,12 +20,12 @@ const TextInput = ({ label, error, register, iconName, showRequired = false, ...
           {...register} // name, ref, onChange, onBlur
           {...rest} // type, placeholder, className, etc.
           placeholder=" "
-          className={cn("peer block w-full px-2 py-2 bg-transparent text-gray-900 rounded-lg border border-gray-300 focus:border-primary focus:ring-0 outline-0 transition", rest.className)}
+          className={cn("peer block w-full px-2 py-2 bg-transparent text-secondary-foreground rounded-lg border border-border focus:border-primary focus:ring-0 outline-0 transition", rest.className)}
       />
       {label && (
-        <div className="flex items-center gap-1 absolute left-1 top-0 -translate-y-1 text-sm text-gray-500 bg-white px-1 transition-all duration-300
-          peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-gray-900 peer-placeholder-shown:text-base
-          peer-focus:top-0 peer-focus:-translate-y-1 peer-focus:text-gray-500 peer-focus:text-sm"
+        <div className="flex items-center gap-1 absolute left-1 top-0 -translate-y-1 text-sm text-tertiary-foreground bg-card px-1 transition-all duration-300
+          peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-secondary-foreground peer-placeholder-shown:text-base
+          peer-focus:top-0 peer-focus:-translate-y-1 peer-focus:text-tertiary-foreground peer-focus:text-sm"
         >
           {iconName && (<Icon name={iconName} className="" />)}
           <label htmlFor={rest.id} className="">

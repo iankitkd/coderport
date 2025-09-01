@@ -90,12 +90,12 @@ const ProblemBar = ({
   return (
     <div>
       <div className="flex justify-between text-sm mb-1">
-        <span className="font-medium text-gray-700">{getDifficultyName()}</span>
-        <span className="text-gray-600">
+        <span className="font-medium text-secondary-foregrounds">{getDifficultyName()}</span>
+        <span className="text-tertiary-foreground">
           {solved} ({percentage}%)
         </span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5">
+      <div className="w-full bg-secondary rounded-full h-2.5">
         <div
           className={`h-2.5 rounded-full ${getDifficultyColor()}`}
           style={{ width: `${percentage}%` }}

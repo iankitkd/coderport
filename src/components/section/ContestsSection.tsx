@@ -40,7 +40,7 @@ export default function ContestsSection({
   return (
     <>
       <RatingsCard selectedPlatform={selectedPlatform} setSelectedPlatform={setSelectedPlatform} ratings={userRatings} />
-      <div className="bg-white rounded-xl shadow py-2">
+      <div className="bg-card rounded-xl shadow py-2">
         <div className="flex justify-between items-center gap-2 p-4">
           <h2 className="text-xl font-semibold">Contests Participated</h2>
           <div className="text-2xl font-bold">{contests}</div>

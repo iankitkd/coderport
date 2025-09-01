@@ -9,6 +9,7 @@ import { ImageProps } from 'next/image';
 import { CiLock } from 'react-icons/ci';
 import { FaChartSimple, FaCode, FaLocationDot } from 'react-icons/fa6';
 import { FiUser } from 'react-icons/fi';
+import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 
 type ReactIconComponent = IconType;
 type PNGIconComponent = ComponentType<Omit<ImageProps, 'src' | 'alt'>>;
@@ -17,7 +18,8 @@ export type IconComponent = ReactIconComponent | PNGIconComponent;
 export type IconName = 'github' | 'linkedin' | 'email' | 'user' | 'logout'
   | 'codeforces' | 'codechef' | 'leetcode' | 'leetcodedark' | 'geeksforgeeks' | 'google'
   | 'externalLink' | 'lock' | 'lockOutline' | 'checkCircle' | 'exclamationTriangle'
-  | 'laptopCode'| 'edit' | 'barChart' | 'location' | 'user2' | 'chart' | 'code' | 'clock';
+  | 'laptopCode'| 'edit' | 'barChart' | 'location' | 'user2' | 'chart' | 'code' | 'clock'
+  | 'sun' | 'moon';
 
 export const Icons: Record<IconName, IconComponent> = {
   user: FaUser,
@@ -44,4 +46,6 @@ export const Icons: Record<IconName, IconComponent> = {
   chart: FaChartSimple,
   code: FaCode,
   clock: FaClock,
+  sun: IoMdSunny,
+  moon: IoMdMoon,
 };
