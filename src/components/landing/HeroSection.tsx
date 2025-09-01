@@ -9,9 +9,15 @@ export default function HeroSection() {
           <h1 className="text-center text-4xl md:text-6xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500">
             Track Your Coding Progress
           </h1>
-          <p className="max-w-2xl mt-4 text-xl text-center text-gray-800">
-            Unify your competitive programming profiles in one beautiful dashboard.
+
+          <h2 className="text-center text-xl md:text-4xl font-semibold mt-4 text-gray-700">
+            All Your Profiles in One Place
+          </h2>
+
+          <p className="max-w-2xl mt-4 text-lg md:text-xl text-center text-gray-800">
+            Unify your programming profiles in one dashboard and keep track of your progress with ease.
           </p>
+
           <div className="mt-8">
             <Link href="/signup">
               <Button variant="gradient" className="px-8 py-3 font-semibold shadow-md">

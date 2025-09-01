@@ -29,7 +29,7 @@ export default function AuthFormWrapper({
   return (
     <div className={cn("w-full min-h-screen max-w-md bg-white rounded-2xl p-5 md:p-8", className)}>
       <div className="text-center mb-4">
-        <div className="mx-auto bg-gradient-to-r from-gradient-start via-gradient-mid to-gradient-end w-14 h-14 rounded-full flex items-center justify-center mb-2">
+        <div className="mx-auto bg-gradient-to-br from-gradient-start via-gradient-mid to-gradient-end w-14 h-14 rounded-full flex items-center justify-center mb-2">
           <Icon name="lock" className="h-6 w-6 text-white" />
         </div>
         <h1 className="text-3xl font-bold text-gray-900">{label}</h1>

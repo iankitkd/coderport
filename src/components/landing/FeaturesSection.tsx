@@ -12,7 +12,7 @@ export default function FeaturesSection() {
         </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {features.map((feature, index) => (
           <div key={index} className="flex flex-col items-center bg-white border-gray-200 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg hover:border-indigo-300 hover:scale-[1.02]">
             <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-emerald-500 rounded-xl flex items-center justify-center text-white mb-4">
