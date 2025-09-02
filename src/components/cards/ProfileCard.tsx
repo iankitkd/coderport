@@ -57,7 +57,7 @@ export default async function ProfileCard({ profile }: { profile: Profile }) {
         <div className="flex flex-col gap-1">
           {Object.entries(handles).map(([key, value]) => (
             <a href={getUserUrlForPlatform(key.toLowerCase(), value)} key={key} target="_blank">
-              <div className="flex items-center justify-between px-2 py-2 rounded-2xl hover:bg-card-hover group">
+              <div className="flex items-center justify-between px-2 py-2 rounded-2xl hover:bg-secondary group">
                 <div className="flex gap-2">
                   <Icon name={key.toLowerCase() as IconName} className="text-gray-800 w-8 h-8" />
                   <span className="font-medium text-tertiary-foreground">{key}</span>

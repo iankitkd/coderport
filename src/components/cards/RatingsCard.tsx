@@ -17,7 +17,7 @@ export default function RatingsCard({selectedPlatform, setSelectedPlatform, rati
           <div 
             key={rating.name} 
             className={`grid grid-cols-5 items-center px-2 py-2 rounded-2xl 
-              ${selectedPlatform == rating.name ? "bg-card-hover": ""} hover:bg-card-hover hover:cursor-pointer group`}
+              ${selectedPlatform == rating.name ? "bg-secondary": ""} hover:bg-secondary hover:cursor-pointer group`}
             onClick={() => setSelectedPlatform(rating.name)}
           >
             <div className="flex gap-2 col-span-3">

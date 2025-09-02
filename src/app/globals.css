@@ -25,11 +25,11 @@
 
 .dark {
   --background: #171717;
-  --foreground: #ffffff;
+  --foreground: oklch(92.8% 0.006 264.531);
   --primary: oklch(51.1% 0.262 276.966);
 
   --secondary: oklch(37.3% 0.034 259.733);
-  --secondary-foreground: oklch(96.7% 0.003 264.542);
+  --secondary-foreground: oklch(92.8% 0.006 264.531);
   --tertiary-foreground: oklch(87.2% 0.01 258.338);
   --muted-foreground: oklch(55.1% 0.027 264.364);
   --card: #18181B;
